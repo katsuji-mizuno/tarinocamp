@@ -1,0 +1,6 @@
+@charset "utf-8";
+/* 管理画面の表示オプション、ヘルプを非表示にする場合
+#screen-meta-links {
+  display: none;
+}
+*/

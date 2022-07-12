@@ -1,0 +1,234 @@
+/*-------------------------------------------*/
+/* reset                                     */
+/*-------------------------------------------*/
+@charset "utf-8";
+/*要素のフォントサイズやマージン・パディングをリセットしています*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    font-weight: normal;
+}
+
+/*行の高さをフォントサイズと同じにしています*/
+body {
+    line-height:1;
+}
+
+/*新規追加要素のデフォルトはすべてインライン要素になっているので、section要素などをブロック要素へ変更しています*/
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+/*nav要素内ulのマーカー（行頭記号）を表示しないようにしています*/
+/*nav ul {
+    list-style:none;
+}*/
+ol, ul {
+    list-style: none;
+}
+
+/*引用符の表示が出ないようにしています*/
+blockquote, q {
+    quotes:none;
+}
+
+/*blockquote要素、q要素の前後にコンテンツを追加しないように指定しています*/
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+/*a要素のフォントサイズなどをリセットしフォントの縦方向の揃え位置を親要素のベースラインに揃えるようにしています*/
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* ins要素のデフォルトをセットし、色を変える場合はここで変更できるようにしています */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* mark要素のデフォルトをセットし、色やフォントスタイルを変える場合はここで変更できるようにしています
+また、mark要素とは、文書内の検索結果で該当するフレーズをハイライトして、目立たせる際に使用するようです。*/
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+/*テキストに打ち消し線が付くようにしています*/
+del {
+    text-decoration: line-through;
+}
+
+/*IEではデフォルトで点線を下線表示する設定ではないので、下線がつくようにしています
+また、マウスオーバー時にヘルプカーソルの表示が出るようにしています*/
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+/*隣接するセルのボーダーを重ねて表示し、間隔を0に指定しています*/
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/*水平罫線のデフォルトである立体的な罫線を見えなくしています*/
+hr {
+    display:block;
+    height:1px;
+    border:0;  
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+/*縦方向の揃え位置を中央揃えに指定しています*/
+input, select {
+    vertical-align:middle;
+}
+
+/*画像を縦に並べた時に余白が出ないように*/
+img {
+    vertical-align: top;
+    font-size: 0;
+    line-height: 0;
+}
+
+/*box-sizingを全ブラウザに対応*/
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*-------------------------------------------*/
+/* 基本設定                                  */
+/*-------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-style: normal;
+}
+
+html {
+  //font-size: 10px;
+  margin-top: 0 !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family:
+  YuGothic,
+  "游ゴシック",
+  'ヒラギノ角ゴ Pro W3',
+  'Hiragino Kaku Gothic Pro',
+  'メイリオ',
+  'Meiryo',
+  'Osaka',
+  'ＭＳ Ｐゴシック',
+  sans-serif;
+  width:100%;
+  height: 100%;
+  font-weight: 400;
+  //font-size: 1em;
+  -webkit-text-size-adjust: 100%;
+  line-height: 2;
+}
+a {
+  outline: none;
+  text-decoration: none;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+img {
+  max-width :100%;
+  height: auto;
+  vertical-align: top;
+}
+a img  {
+  border: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+/*-------------------------------------------*/
+/* 404見つかりませんでした                      */
+/*-------------------------------------------*/
+#not_found {
+  .inner {
+    border-bottom:1px solid #e6e6e6;
+    padding:30px 0 60px 0;
+    h1 {
+      color:#4b4b4b;
+      font-size:120px;
+      text-align:center;
+      font-weight:normal;
+      margin-bottom:30px;
+    }
+    .lead {
+      font-size:35px;
+      text-align:center;
+      vertical-align:middle;
+      margin-bottom:30px;
+      span {
+        vertical-align:middle;
+        font-size:16px;
+      }
+    }
+    .text {
+      font-size:13px;
+      text-align:center;
+      line-height:1.6;
+    }
+  }
+  .totop {
+    text-align:center;
+    padding:60px 0;
+    a {
+      display: inline-block;
+      padding: 20px 60px;
+      text-align: center;
+      text-decoration: none;
+      font-size:16px;
+      background:#bcbcbc;
+      color:#fff;
+    }
+  }
+}
+

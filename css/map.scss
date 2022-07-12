@@ -1,0 +1,270 @@
+/*-------------------------------------------*/
+/* コース一覧(検索結果,タグ,カテゴリ一覧共通)     */
+/*-------------------------------------------*/
+@charset "utf-8";
+@import "_mixin";
+/*--------------------
+個別変数定義
+---------------------*/
+$cos_navy:#003C78;
+$cos_blue:#00ABE7;
+body {
+  background: #F7F7F7;
+}
+/*--------------------
+ページ共通
+---------------------*/
+.contents {
+  padding-top: 50px;
+  background: #fff;
+  @media screen and (min-width: ($menu_width)+1) {
+    padding-top: 0;
+  }
+}
+/*--------------------
+inner
+---------------------*/
+.contents_head,
+.contents_body {
+  .inner {
+    max-width: 1200px;
+  }
+  @media screen and (min-width: 1025px) {
+    .inner {
+      margin:0 auto;
+    }
+  }
+}
+/*--------------------
+ヘッダー
+---------------------*/
+
+
+.contents_head {
+  background: $cos_navy;
+  background: linear-gradient(135deg, #15466e 0%, #1464a4 100%);
+  padding:40px 0;
+  color: #fff;
+  text-align: center;
+  .page_title {
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1.3;
+    span {
+      font-size: inherit;
+      font-weight: inherit;
+    }
+    @include mediaSP{
+      font-size: 26px;
+    }
+  }
+  .h_lead {
+    margin-top: 25px;
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 1.42;
+    @include mediaSP{
+      font-size: 14px;
+    }
+  }
+  @include mediaTB {
+    padding:$tbMgnH 0;
+  }
+}
+/*--------------------
+セクションタイトル
+---------------------*/
+.article_title {
+  color:$cos_navy;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  margin-bottom: 1em;
+  @include mediaTB {
+    font-size: 18px;
+  }
+}
+
+
+/*--------------------
+本文
+---------------------*/
+.contents_body {
+  padding:40px 20px 0;
+  background: #fff;
+  p {
+    line-height: 2;
+    &+.article_title {
+      margin-top: 30px;
+    }
+    &+.list_num {
+      margin-top: 1em;
+    }
+  }
+  a {
+    color:$cos_navy;
+  }
+
+  @include mediaPC {
+    padding:120px 20px;
+    a {
+      @include trans;
+      &:hover {
+        color: $cos_blue;
+      }
+    }
+  }
+}
+
+
+.map_menu {
+
+  @include mediaPC{
+    display: flex;
+    justify-content: space-between;
+  }
+  li{
+    opacity: 1;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #999;
+    position: relative;
+    top:0;
+    left: 0;
+    @include mediaPC{
+      width: 48%;
+    }
+    @include trans;
+    &:hover{
+      opacity: 0.9;
+      box-shadow: 1px 1px 1px #999;
+      top:3px;
+      left:3px;
+    }
+    a{
+      display: block;
+    }
+  }
+}
+
+.map_java {
+  background: #DC367D;
+}
+
+.map_python {
+  background: #0071BC;
+}
+
+.map_menu_tit {
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  padding: 40px;
+  font-weight: bold;
+  span{
+    margin: 20px 0 0;
+    font-size: 19px;
+    display: block;
+    font-weight: normal;
+    @include mediaSP{
+      margin: 13px 0 0;
+    }
+  }
+  @include mediaSPTB{
+    font-size: 20px;
+    padding: 20px 0px;
+    margin: 0 0 20px;
+    span{
+      font-size: 14px;
+    }
+  }
+}
+
+
+
+/*--------------------
+法人
+---------------------*/
+#business {
+  position: relative;
+  font-family: '小塚ゴシック Pro','Kozuka Gothic Pro','Noto Sans JP', sans-serif;
+  .texts {
+    position: absolute;
+    z-index: 1;
+    right: 20px;
+    top: 50%;
+    width: 50%;
+    transform:translateY(-50%);
+    text-align: center;
+  }
+  .biz_title {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1;
+  }
+  .biz_lead {
+    font-size: 14px;
+    color: #fff;
+    margin:10px 0 20px;
+  }
+  .btn_round {
+    display: inline-block;
+    background-color: #fff;
+    color:#333333;
+    line-height: 45px;
+    border-radius: 23px;
+    box-shadow: 4px 4px 9px rgba(0,0,0,0.16);
+    border:none;
+    font-size: 11px;
+    font-weight: 400;
+    width: 100%;
+    max-width: 192px;
+  }
+  @include mediaTB {
+    .biz_title {
+      font-size: 22px;
+    }
+    .biz_lead {
+      font-size: 16px;
+    }
+    .btn_round {
+      font-size: 15px;
+      max-width: 280px;
+      line-height: 50px;
+      border-radius: 45px;
+    }
+  }
+  @include mediaPC {
+    .biz_title {
+      font-size: 35px;
+    }
+    .biz_lead {
+      font-size: 22px;
+      margin:15px 0 30px;
+    }
+    .btn_round {
+      font-size: 20px;
+      max-width: 384px;
+      line-height: 90px;
+      border-radius: 45px;
+    }
+  }
+  @media screen and (min-width: 1300px) {
+    .biz_lead {
+      margin:20px 0 40px;
+    }
+  }
+  @include mediaGT {
+    .image {
+      height: 430px;
+      img {
+        object-fit:cover;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.contents_head .h_lead {
+  line-height: 2;
+}

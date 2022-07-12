@@ -1,0 +1,47 @@
+/*-------------------------------------------*/
+/* mixin                                     */
+/*-------------------------------------------*/
+@charset "utf-8";
+@import "_variable";
+@function get_vw($size, $viewport:375){
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+@mixin fz($font_size:10){
+  @media only screen and (max-width: 750px) {
+    font-size: $font_size * 1px;
+    font-size: get_vw($font_size);
+  }
+}
+@mixin trans {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+@mixin bbox {
+  box-sizing: border-box;
+}
+
+@mixin mediaSP {
+  @media all and (max-width: $sp_w) {@content;}
+}
+@mixin mediaSPTB {
+  @media all and (max-width: $tb_w) {@content;}
+}
+@mixin mediaTB {
+  @media all and (min-width: ($sp_w)+1) {@content;}
+}
+
+@mixin mediaPC { //56
+  @media all and (min-width: ($tb_w)+1) {@content;}
+}
+@mixin mediaGT { //16
+  @media all and (min-width: ($pc_w)+1) {@content;}
+}
+
+@mixin mediaMaxMN {
+  @media all and (max-width: ($menu_width)) {@content;}
+}
+
+@mixin mediaMinMN {
+  @media all and (min-width: ($menu_width)+1) {@content;}
+}

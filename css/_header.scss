@@ -1,0 +1,1069 @@
+// header
+
+header{
+  width: 100%;
+  z-index: 10000 ;
+  background: #fff;
+
+  @include mediaMaxMN{
+    position: fixed;
+  }
+}
+
+// header_nav
+
+.header {
+  position: relative;
+  .header_nav {
+    width: 100%;
+    z-index: 999;
+    height: 50px;
+    @include mediaMinMN {
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+
+  h1 {
+    width: 270px;
+    margin: 20px 0 0 20px;
+    @include mediaMinMN {
+      margin: 0 0 0 20px;
+    }
+    @include mediaMaxMN{
+      max-width: 180px;
+
+      margin: 0px auto;
+      padding: 15px 0 0;
+    }
+    &.blog_logo{
+      max-width: 220px;
+    }
+  }
+}
+
+
+
+// PCの <header> > <ul>
+
+@include mediaMinMN{
+  .header {
+    ul {
+      &.show {
+        top: 50px;
+        height:110vh;
+        @include trans;
+        &:first-child{
+          border-top: 1px solid #DEDBCD;
+        }
+      }
+      li {
+        a {
+          display: block;
+          text-decoration: none;
+          text-align: left;
+        }
+      }
+      &.nav_flex{
+        display: flex;
+        width: calc(100% - 300px);
+        justify-content: space-between;
+        align-items: center;
+        li {
+          a.hover_first{
+            color:#8F8D8D;
+            @include trans;
+          }
+          &:hover{
+            a.hover_first {
+              color:#24B5E5;
+            }
+          }
+        }
+      }
+
+      &.nav_1,&.nav_2,&.nav_3,&.nav_4{
+        border:1px solid #9A9B9D;
+        border-radius: 5px;
+        background: #fff;
+        li{
+          padding: 0;
+          margin: 0;
+          a{
+            padding: 15px 30px;
+            position: relative;
+          }
+        }
+      }
+
+      li.accordion_1{
+      a.hover_second{
+        &::after{
+          content: "";
+          position: absolute;
+          border-bottom: dotted #9A9B9D 1px;
+          width: 215px;
+          left: 15px;
+          top: 50px;
+        }
+      }
+      &:last-child{
+        a.hover_second{
+          &::after{
+            display: none;
+          }
+        }
+      }
+    }
+
+    li.accordion_2{
+      a.hover_third{
+        &::after{
+          content: "";
+          position: absolute;
+          border-bottom: dotted #9A9B9D 1px;
+          width: 215px;
+          left: 15px;
+          top: 50px;
+        }
+      }
+      &:last-child{
+        a.hover_third{
+          &::after{
+            display: none;
+          }
+        }
+      }
+    }
+
+    li.accordion_3{
+      a.hover_fourth{
+        &::after{
+          content: "";
+          position: absolute;
+          border-bottom: dotted #9A9B9D 1px;
+          width: 215px;
+          left: 15px;
+          top: 50px;
+        }
+      }
+      &:last-child{
+        a.hover_fourth{
+          &::after{
+            display: none;
+          }
+        }
+      }
+    }
+    li.accordion_4{
+      a.hover_fourth{
+        &::after{
+          content: "";
+          position: absolute;
+          border-bottom: dotted #9A9B9D 1px;
+          width: 215px;
+          left: 15px;
+          top: 54px;
+        }
+      }
+      &:last-child{
+        a.hover_fourth{
+          &::after{
+            display: none;
+          }
+        }
+      }
+    }
+
+      // 「コースカテゴリー」の「>」表示
+
+      &.nav_1,&.nav_2{
+        li{
+          a{
+            &::before{
+              content: "";
+              position: absolute;
+              right: 33px;
+              top: 21px;
+              width: 10px;
+              height: 10px;
+              border-top: 2px solid #9A9B9D;
+              border-right: 2px solid #9A9B9D;
+              -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+              @include trans;
+            }
+            &:hover{
+              &::before{
+                border-top: 2px solid #22AAE2;
+                border-right: 2px solid #22AAE2;
+              }
+            }
+          }
+        }
+      }
+      &.nav_3{
+        li{
+          a{
+            &::before{
+              display: none;
+            }
+          }
+        }
+      }
+
+      // 「コースカテゴリー」の第２・３階層のウィンドウ位置
+
+      &.nav_2,&.nav_3 {
+        top: -52px;
+        left: 248px;
+      }
+      &.nav_4 {
+        top: 0px;
+        left: 0px;
+      }
+      &.nav_1{
+        li{
+          a.hover_second{
+            color:#8F8D8D;
+            @include trans;
+          }
+          &:hover{
+            a.hover_second {
+              color:#24B5E5;
+            }
+          }
+        }
+      }
+      &.nav_2{
+        li{
+          a.hover_third{
+            color:#8F8D8D;
+            @include trans;
+          }
+          &:hover{
+            a.hover_third {
+              color:#24B5E5;
+            }
+          }
+        }
+      }
+      &.nav_3{
+        li{
+          a{
+            color:#8F8D8D;
+            @include trans;
+          }
+          &:hover{
+            a {
+              color:#24B5E5;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// スマホの <header> > <ul>
+@include mediaMaxMN{
+  .header {
+    ul {
+      font-size: 14px;
+      z-index: 9998;
+      display: block;
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: -300vh;
+      @include trans;
+      background: #fff;
+      &.show {
+        top: 102px;
+        height:110vh;
+        overflow: auto;
+        padding: 0 0 20px;
+        @include trans;
+        &.no_news{
+          top: 50px;
+        }
+      }
+      li {
+        padding: 0px 0px 0px 20px;
+        border-bottom: solid 2px #DEDBCD;
+        &.nav_second_sp,.nav_third_sp,.nav_forth_sp{
+          border-bottom: solid 1px #DEDBCD;
+          &:first-child{
+            border-top: solid 1px #DEDBCD;
+          }
+          a{
+            position: relative;
+            &::before{
+              content: "";
+              border-top: 1px solid #9A9B9E;
+              width: 8px;
+              position: absolute;
+              left: -18px;
+              top: 29px;
+            }
+          }
+        }
+        a {
+          padding: 20px 0;
+          display: block;
+          text-decoration: none;
+          text-align: left;
+        }
+        &.accordion{
+            display:none;
+        }
+
+        &:last-child{
+          border-bottom: none;
+        }
+
+
+      }
+    }
+  }
+
+  .tap_first {
+    font-weight: bold;
+  }
+
+  .nav_flex{
+    border-top: #DEDBCD solid 1px;
+  }
+
+}
+
+
+
+
+
+/*----------------------------------------------------
+「ログイン」と「新規登録」のボタン
+----------------------------------------------------*/
+
+
+.header {
+
+  ul {
+    li {
+      @include mediaMinMN{
+        &.nav_login,&.nav_register {
+          border-radius: 5px;
+          margin: 0 10px;
+          padding: 0;
+          @include trans;
+          a,a:link{
+            color: #fff;
+            padding: 10px 0px;
+            text-align: center;
+          }
+        }
+        &.nav_login {
+          background: #363636;
+          &:hover{
+            background: #666666;
+          }
+        }
+        &.nav_register {
+          background: #DB4620;
+          &:hover{
+            background: #FB7F2D;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+
+/*----------------------------------------------------
+２段目のメニュー（PCのみ）
+----------------------------------------------------*/
+
+@include mediaMinMN{
+  .nav_second {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    border-top: 1px solid #ccc;
+    li {
+      &.accordion_2{
+        margin: 0 20px;
+        position: relative;
+        font-weight: bold;
+        &::after{
+          content: "";
+          border-right: solid 1px #9FA0A2;
+          position: absolute;
+          height: 24px;
+          right: -21px;
+          top: 12px;
+          &:last-child{
+            border-right: none;
+          }
+        }
+      }
+      a{
+        color: #222222;
+        @include trans;
+        &:hover{
+          color: #22AAE2;
+        }
+      }
+    }
+  }
+}
+
+
+
+#nav_open {
+  @include mediaMaxMN{
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 9999;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  span {
+    @include mediaMaxMN{
+      position: absolute;
+    height: 1px;
+    width: 20px;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
+    background: #6B6D70;
+    display: block;
+    transition: all .2s;
+    content: '';
+    cursor: pointer;
+    }
+    &:nth-child(2) {
+      @include mediaMaxMN{
+        top: 8px;
+      }
+    }
+    &:nth-child(3) {
+      @include mediaMaxMN{
+        top: 16px;
+      }
+    }
+  }
+  &.show {
+    span {
+      @include mediaMaxMN{
+        width: 20px;
+        transform: translateY(8px) rotate(-45deg);
+      }
+      &:nth-child(2) {
+        width: 0;
+      }
+      &:nth-child(3) {
+        @include mediaMaxMN{
+          width: 20px;
+          transform: translateY(-8px) rotate(45deg);
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------------
+PC版　メニューホバーでサブメニューを出現
+----------------------------------------------------*/
+
+
+
+  //「コースカテゴリー」ホバーで第１階層を表示
+  header{
+  .accordion {
+    @include mediaMaxMN{
+      display: none;
+    }
+    .accordion_on{
+      position: absolute;
+      height: 0px;
+      overflow: hidden;
+      opacity: 0;
+      @include trans;
+      ul{
+        @include mediaMinMN{
+          width: 250px;
+          }
+        margin: 0 auto;
+        position: relative;
+      }
+    }
+  &:hover{
+    .accordion_on{
+      @include mediaMinMN{
+          overflow: visible;
+          z-index: 1000;
+          opacity: 1;
+
+          li{
+            &::before{
+              display: none;
+            }
+            &::after{
+              background: #00AAE2;
+              top: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //第１階層ホバーで第２階層を表示
+
+  .accordion_1 {
+    @include mediaMaxMN{
+      display: none;
+    }
+    .accordion_1_on{
+      position: absolute;
+      height: 0px;
+      overflow: hidden;
+      opacity: 0;
+      @include trans;
+      ul{
+        @include mediaMinMN{
+        width: 250px;
+        }
+        margin: 0 auto;
+        position: relative;
+      }
+    }
+  &:hover{
+    .accordion_1_on{
+      @include mediaMinMN{
+          overflow: visible;
+          margin: 0 ;
+          z-index: 1000;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+
+  //第２階層ホバーで第３階層を表示
+
+  .accordion_2 {
+    @include mediaMaxMN{
+      display: none;
+    }
+    .accordion_2_on{
+      position: absolute;
+      height: 0px;
+      overflow: hidden;
+      opacity: 0;
+      @include trans;
+
+      ul{
+        @include mediaMinMN{
+        width: 250px;
+        }
+        margin: 0 auto;
+        position: relative;
+      }
+    }
+  &:hover{
+    .accordion_2_on{
+      @include mediaMinMN{
+          overflow: visible;
+          margin: 0 ;
+          z-index: 1000;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+}
+
+/*----------------------------------------------------
+スマホメニューの「+」ボタン
+----------------------------------------------------*/
+
+  .toggle_title {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .toggle_btn {
+    position: absolute;
+    top: 47%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .toggle_btn:after {
+    display: block;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 10px;
+    border-top: 1px solid #6B6D70;
+    border-left: 1px solid #6B6D70;
+    transform: rotate(45deg);
+    @include trans;
+  }
+
+  .toggle_btn:after{
+    top: 18px;
+    left: 5px;
+    transform: rotate(45deg);
+  }
+
+  .toggle_title.selected{
+    .toggle_btn:after {
+      transform: rotate(225deg);
+      top: 14px;
+    }
+  }
+
+  .toggle_contents dd {
+    display: none;
+  }
+
+//スマホメニューの「+」ボタン押下後の表示
+
+  .dropdown{
+    ul.show{
+      z-index: -1;
+      display: block;
+      position: inherit;
+      height: auto;
+      padding: 1px 0 0;
+    }
+    @include mediaMinMN{
+      display: none;
+    }
+  }
+
+
+
+/*----------------------------------------------------
+PC検索窓
+----------------------------------------------------*/
+
+form#searchform {
+  display: flex;
+  height: 40px;
+  border: solid thin #6C6D70;
+  border-radius: 6px;
+  position: relative;
+}
+
+.btn_search{
+  width: 40px;
+  background: #DB4620;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  z-index: 0;
+  cursor: pointer;
+  height: 101%;
+  position: absolute;
+  right: 0px;
+  @include trans;
+  &:hover{
+    background: #FB7F2D;
+  }
+}
+
+
+.header {
+  ul {
+    li {
+      &.search_window{
+        background: #F1F1F3;
+        padding: 0;
+        height: 40px;
+        z-index: 1;
+        box-sizing: initial;
+        position: relative;
+        margin: 0 20px;
+        border-radius: 5px;
+        width: calc(100% - 800px);
+        min-width: 240px;
+        @include mediaMaxMN{
+          display: none;
+        }
+        &::before{
+          content: "";
+          background-image: url(../images/common/icon_search_pc.png);
+          width: 17px;
+          height: 17px;
+          position: absolute;
+          right: 12px;
+          top: 11px;
+          z-index: 1;
+          background-size: 100%;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}
+
+/*----------------------------------------------------
+スマホ検索窓
+----------------------------------------------------*/
+
+.search_icon{
+  @include mediaMinMN{
+    display: none;
+  }
+}
+
+/*========= 検索窓を開くための虫眼鏡ボタン設定 ===========*/
+
+.open-btn{
+  position: absolute;
+  top:0px;
+  right:0px;
+  background:url("../images/common/icon_search_sp.png") no-repeat 15px center;/*虫眼鏡アイコンを背景に表示*/
+  background-size: 20px 20px;
+  width:50px;
+  height:50px;
+  cursor: pointer;
+}
+
+
+
+/*========= 検索窓の設定 ===============*/
+
+/*==検索窓背景のエリア*/
+
+#search-wrap{
+    position:fixed;/*固定配置にして*/
+  top: 0;
+    left: 0;
+  z-index: -1;/*最背面に設定*/
+  opacity: 0;/*透過を0に*/
+  transition: all 0.4s;/*transitionを使ってスムースに現れる*/
+  width:100%;
+}
+
+/*ボタンクリック後、JSで#search-wrapに panelactive クラスが付与された後の見た目*/
+#search-wrap.panelactive{
+  opacity: 0.9;/*不透明に変更*/
+   z-index: 10000;/*全面に出現*/
+   background:#333;
+    /*中の要素を天地中央揃えにする設定*/
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+/*==検索窓のエリア*/
+
+#search-wrap .search-area{
+  display: none;/*検索窓のエリアは、はじめ非表示*/
+}
+
+/*ボタンクリック後、JSで#search-wrapに panelactive クラスが付与された後*/
+#search-wrap.panelactive .search-area{
+  display: block;/*検索窓エリアを表示*/
+  width:80%;
+  position: relative;
+}
+
+/*==検索フォームの設定*/
+
+#search-wrap form{
+  position: relative;
+}
+
+/*==テキスト入力とボタンinput共通設定*/
+#search-wrap input{
+  -webkit-appearance:none;/*SafariやChromeのデフォルトの設定を無効*/
+  outline: none;
+  cursor: pointer;/*カーソルを指マークに*/
+  color: #fff;
+}
+
+/*テキスト入力input設定*/
+ #search-wrap input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border: 1px solid #ccc;
+  transition: all 0.5s;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+  background: #fff;
+}
+
+ #search-wrap input[type="text"]:focus {
+  background:#444;
+}
+
+/*ボタンinput設定*/
+ #search-wrap input[type="submit"] {
+  position: absolute;
+  top: -5px;
+  right: -3px;
+  background:url("../images/common/icon_search_sp.png") no-repeat 15px center;/*虫眼鏡アイコンを背景に表示*/
+  background-size: 40%;
+  width:50px;
+  height: 50px;
+}
+
+/*=======　閉じるための×ボタン　========*/
+.close-btn{
+  position: absolute;
+  top:-6px;
+  right:5px;
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+}
+
+.close-btn span{
+    display: inline-block;
+    position: absolute;
+    left: 14px;
+    height: 1px;
+    border-radius: 2px;
+  background-color: #fff;
+ }
+
+/*×マーク*/
+.close-btn span:nth-of-type(1) {
+    top: 18px;
+    left: 11px;
+    transform: translateY(6px) rotate(-135deg);
+    width: 50%;
+}
+
+.close-btn span:nth-of-type(2){
+    top: 30px;
+    left: 11px;
+    transform: translateY(-6px) rotate(135deg);
+    width: 50%;
+}
+
+
+.header_nav_bottom {
+  @include mediaMinMN {
+    font-size: 16px;
+  }
+  @include mediaMaxMN{
+    display: none;
+  }
+}
+
+
+
+/*--------------------
+バルーンのライブラリの打ち消し
+---------------------*/
+
+
+.search_window{
+input#q {
+  font-size: unset;
+  border: none;
+  background: #F1F1F3;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+}
+
+
+/*--------------------
+ヘッダーメニュー修正用に幅を全て指定。
+---------------------*/
+
+li.accordion {
+  width: 130px;
+  margin: 0 0 0 20px;
+}
+
+
+li.list_servive{
+  width: 140px;
+  @include mediaService{
+    display: none;
+  }
+}
+
+li.list_course{
+  width: 140px;
+  @include mediaCourse{
+    display: none;
+  }
+}
+
+li.list_blog{
+  width: 70px;
+  @include mediaBlog{
+    display: none;
+  }
+}
+
+li.list_biz{
+  width: 120px;
+  @include mediaBiz{
+    display: none;
+  }
+}
+
+li.nav_login{
+  width: 90px;
+}
+
+li.nav_register{
+  width: 90px;
+}
+
+h1.common_logo {
+  img{
+    width: 270px;
+  }
+}
+
+
+li.list_servive,li.list_course,li.list_blog,li.list_biz,li.nav_login,li.nav_register{
+  @include mediaMaxMN{
+    display: block;
+    width: 100%;
+  }
+}
+
+/*--------------------
+クリックすると消えるニュース
+---------------------*/
+
+.head_news {
+  text-align: center;
+  background: #117FA7;
+  position: relative;
+
+  .head_news_text {
+    color: #fff;
+    font-weight: bold;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  @include trans;
+  &:hover{
+    background: #0b6690;
+  }
+
+  a{
+    font-size: 15px;
+    font-weight: bold;
+    font-family: メイリオ;
+    display: block;
+    padding: 10px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include mediaMaxMN{
+      height: 50px;
+      font-size: 14px;
+      padding: 5px 40px ;
+      height: 50px;
+      overflow-y: hidden;
+    }
+
+  }
+  button{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    border: 1px;
+    font-family: 'Noto Sans JP';
+    height: 50px;
+    margin-top: -25px;
+  }
+}
+
+
+/*--------------------
+クリックすると消えるニュースに併せて、ボタンや画像の位置をずらす。
+---------------------*/
+
+.open-btn {
+  top: 50px;
+  @include trans;
+  &.no_news{
+    top: 0px;
+  }
+}
+
+
+#nav_open {
+  top: 68px;
+  @include trans;
+  &.no_news{
+    top: 16px;
+  }
+}
+
+.top_mv_01, .top_mv_02 {
+  @include mediaMaxMN{
+    margin: 50px 0 0;
+    &.no_news{
+      margin: 0;
+    }
+  }
+}
+
+
+.header  {
+  .nav_second {
+    .nav_flex {
+      width: auto;
+      li.accordion_2::after {
+        top: 0px;
+      }
+    }
+  }
+}
+

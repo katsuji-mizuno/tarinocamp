@@ -1,0 +1,1185 @@
+@charset "UTF-8";
+/*-------------------------------------------*/
+/* トップページ 　 　 　 　 　                    */
+/*-------------------------------------------*/
+/*-------------------------------------------*/
+/* mixin                                     */
+/*-------------------------------------------*/
+/*-------------------------------------------*/
+/* variable                                  */
+/*-------------------------------------------*/
+@media all and (max-width: 750px) {
+  .contents {
+    padding-top: 50px;
+  }
+}
+
+/*--------------------
+MainVisual
+---------------------*/
+.top_mv_01, .top_mv_02 {
+  height: 310px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media all and (max-width: 1100px) {
+  .top_mv_01, .top_mv_02 {
+    height: 390px;
+  }
+}
+
+.top_mv_01 {
+  background-image: url(../images/top/bg_main01_pc.jpg);
+  background-color: #22A1FA;
+}
+@media all and (max-width: 1100px) {
+  .top_mv_01 {
+    background-image: url(../images/top/bg_main01_sp.jpg);
+  }
+}
+
+.top_mv_02 {
+  background-image: url(../images/top/bg_main02_pc.jpg);
+  background-color: #F5F5F7;
+}
+@media all and (max-width: 1100px) {
+  .top_mv_02 {
+    background-image: url(../images/top/bg_main02_sp.jpg);
+  }
+}
+
+.top_mv_inner {
+  max-width: 1000px;
+  height: 100%;
+  position: relative;
+}
+@media all and (min-width: 751px) {
+  .top_mv_inner {
+    margin: 0 60px 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-flow: row-reverse;
+            flex-flow: row-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+/*---右の丸くて白い円---*/
+.top_mv_link {
+  width: 220px;
+  height: 220px;
+  margin: 0 30px;
+}
+@media all and (max-width: 750px) {
+  .top_mv_link {
+    padding: 30px 20px;
+    position: absolute;
+    right: -30px;
+    top: -10px;
+    width: 55%;
+  }
+}
+
+/*---真ん中のキャッチ---*/
+@media all and (max-width: 750px) {
+  .top_mv_catch_text {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+  }
+}
+
+.top_mv_01_catch, .top_mv_02_catch {
+  font-size: 48px;
+  line-height: 1;
+  text-align: center;
+}
+.top_mv_01_catch span, .top_mv_02_catch span {
+  font-size: 22px;
+}
+@media all and (min-width: 1101px) {
+  .top_mv_01_catch span br, .top_mv_02_catch span br {
+    display: none;
+  }
+}
+@media all and (max-width: 1100px) {
+  .top_mv_01_catch, .top_mv_02_catch {
+    font-size: 23px;
+  }
+  .top_mv_01_catch span, .top_mv_02_catch span {
+    font-size: 14px;
+  }
+}
+
+.top_mv_01_catch {
+  color: #fff;
+  text-shadow: 2px 2px 10px #22A1FA, -2px 2px 10px #22A1FA, 2px -2px 10px #22A1FA, -2px -2px 10px #22A1FA;
+}
+
+.top_mv_02_catch {
+  color: #363636;
+  text-shadow: 2px 2px 10px #fff, -2px 2px 10px #fff, 2px -2px 10px #fff, -2px -2px 10px #fff;
+}
+
+/*--------------------
+Slick
+---------------------*/
+.slider {
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #000;
+}
+
+.slick-dots {
+  bottom: -5px;
+}
+@media all and (max-width: 750px) {
+  .slick-dots {
+    bottom: 67px;
+  }
+}
+
+.slick-dots li {
+  width: 50px;
+}
+
+.slick-dots li button:before {
+  content: "";
+  height: 3px;
+  width: 40px;
+  background-color: #C1C1C2;
+}
+
+.slick-dots li.slick-active button:before {
+  content: "";
+  background-color: #DB4620;
+}
+
+.slick-next {
+  right: 25px;
+}
+
+.slick-prev {
+  left: 25px;
+  z-index: 1;
+}
+
+.slick-list {
+  z-index: 0;
+}
+
+.top_catch {
+  font-size: 26px;
+  text-align: center;
+  margin: 20px 0;
+}
+@media all and (min-width: 751px) {
+  .top_catch br {
+    display: none;
+  }
+}
+@media all and (max-width: 750px) {
+  .top_catch {
+    font-size: 15px;
+  }
+}
+
+/*--------------------------------------
+ コース「新着一覧」のSlick
+--------------------------------------*/
+.contents_body .slider {
+  width: 768px;
+  margin: 30px auto 0;
+}
+.contents_body .slider .slick-list {
+  padding: 0 30% 0 0 !important;
+}
+.contents_body .slider li {
+  margin: 0 0.5%;
+}
+.contents_body .slider li figcaption {
+  margin: 10px 0 0;
+}
+@media screen and (max-width: 640px) {
+  .contents_body .slider {
+    width: 100%;
+  }
+}
+
+.contents_body .slick-next {
+  right: -60px;
+}
+@media all and (max-width: 750px) {
+  .contents_body .slick-next {
+    right: 10px;
+    top: -40px;
+  }
+}
+.contents_body .slick-prev {
+  left: -60px;
+  z-index: 1;
+}
+
+/*----------------------------------------------------
+PC検索窓
+----------------------------------------------------*/
+@media all and (max-width: 930px) {
+  .top_mv_wrap .slick-prev, .top_mv_wrap .slick-next {
+    top: 60%;
+  }
+}
+.top_mv_wrap .form-control {
+  border: none;
+  color: #222222;
+  font-size: 15px;
+  padding: 0 40px 0 20px;
+  width: 90%;
+  background-color: #F1F1F3;
+  height: 100%;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+@media all and (max-width: 1100px) {
+  .top_mv_wrap .form-control {
+    width: 85%;
+  }
+}
+.top_mv_wrap .btn_search {
+  width: 10%;
+  background: #DB4620;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  z-index: 0;
+  cursor: pointer;
+  position: absolute;
+  height: 101%;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+@media all and (max-width: 1100px) {
+  .top_mv_wrap .btn_search {
+    width: 15%;
+  }
+}
+.top_mv_wrap .btn_search:hover {
+  background: #FB7F2D;
+}
+.top_mv_wrap form#searchform {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 58px;
+  min-width: 700px;
+  position: relative;
+}
+@media all and (max-width: 1100px) {
+  .top_mv_wrap form#searchform {
+    height: 44px;
+    min-width: 300px;
+  }
+}
+.top_mv_wrap .mv_search_window {
+  border-radius: 6px;
+  background: #F1F1F3;
+  padding: 0;
+  z-index: 1;
+  -webkit-box-sizing: initial;
+          box-sizing: initial;
+  position: relative;
+  margin: 40px 40px 20px;
+}
+.top_mv_wrap .mv_search_window input {
+  -webkit-appearance: none;
+}
+.top_mv_wrap .mv_search_window::before {
+  content: "";
+  background-image: url(../images/top/icon_search_top.png);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 24px;
+  top: 19px;
+  z-index: 1;
+  background-size: 100%;
+}
+@media all and (max-width: 1100px) {
+  .top_mv_wrap .mv_search_window::before {
+    top: 12px;
+    right: 12px;
+  }
+}
+
+/*----------------------------------------------------
+コース一覧
+----------------------------------------------------*/
+ul#course_list li {
+  padding: 10px;
+  margin: 0 5px 0 0;
+  background: #fff;
+  border: 1px solid #D9D7C9;
+  opacity: 1;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+ul#course_list li:hover {
+  opacity: 0.8;
+}
+ul#course_list li.list_tags2 {
+  padding: 3px;
+}
+ul#course_list .course_gaiyou li {
+  border: none;
+  background: none;
+  display: block;
+  font-weight: normal;
+  margin: 3px 0;
+}
+ul#course_list .list_tags2 li {
+  padding: 3px;
+  border: 1px solid #DB4620;
+  cursor: pointer;
+}
+ul#course_list .list_tags2 li a {
+  color: #DB4620;
+}
+
+/*--------------------↓↓↓↓↓↓「courselist.scss」をコピーしていじってます。↓↓↓↓↓↓------------------------------*/
+/*--------------------
+個別変数定義
+---------------------*/
+/*--------------------
+inner
+---------------------*/
+.contents_head .inner,
+.contents_body .inner {
+  max-width: 1390px;
+  margin: 0 40px;
+}
+@media all and (max-width: 750px) {
+  .contents_head .inner,
+.contents_body .inner {
+    margin: 0;
+  }
+}
+
+/*--------------------
+ヘッダー
+---------------------*/
+.contents_head {
+  background: #003C78;
+  padding: 40px 0;
+  color: #fff;
+  text-align: center;
+}
+.contents_head .page_title {
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.contents_head .page_title span {
+  font-size: inherit;
+  font-weight: inherit;
+}
+.contents_head .h_lead {
+  margin-top: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.42;
+}
+.contents_head .h_lead a {
+  color: #00ABE7;
+}
+
+/*--------------------
+一覧
+---------------------*/
+.list_wrap {
+  padding: 25px 0;
+}
+@media all and (min-width: 751px) {
+  .list_wrap {
+    padding: 30px 0;
+  }
+}
+
+.course_list > li + li {
+  margin-top: 15px;
+  height: 100px;
+}
+.course_list > li a {
+  display: block;
+  padding: 15px;
+  border: 1px solid #D9D9D9;
+  border-radius: 1px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.course_list .image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.course_list .course_title {
+  font-size: 14px;
+  font-weight: 700;
+}
+.course_list .course_sub_title {
+  font-size: 11px;
+  margin-top: 10px;
+  text-align: justify;
+  line-height: 1.5;
+}
+.course_list .course_gaiyou {
+  margin-top: 10px;
+}
+.course_list .course_gaiyou li {
+  display: inline;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.course_list .course_gaiyou li::before {
+  content: "●";
+  font-size: 10px;
+}
+.course_list .price_box {
+  margin: 10px 0;
+}
+.course_list .discount_price {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+  margin-right: 10px;
+}
+.course_list .tuition {
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 300;
+  white-space: nowrap;
+  text-decoration: line-through;
+  color: #808080;
+  text-align: right;
+  margin: 0 0 0 20px;
+}
+@media all and (max-width: 750px) {
+  .course_list .title_box {
+    margin-top: 15px;
+  }
+  .course_list .price_box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+@media all and (min-width: 751px) {
+  .course_list > li a {
+    padding: 10px;
+    background: #fff;
+  }
+  .course_list .image {
+    max-width: 320px;
+    max-height: 132px;
+  }
+  .course_list .title_box {
+    margin-top: 10px;
+  }
+  .course_list .price_box {
+    margin-right: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+  }
+  .course_list .course_title {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 10px 0;
+  }
+  .course_list .course_sub_title {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .course_list .course_gaiyou li {
+    font-size: 12px;
+  }
+  .course_list .discount_price {
+    font-size: 16px;
+    text-align: right;
+    margin-right: 0;
+  }
+  .course_list .tuition {
+    font-size: 14px;
+  }
+}
+.course_list .course_title {
+  font-size: 16px;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.course_list .course_sub_title {
+  font-size: 13px;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  overflow: hidden;
+  height: 58px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-height: 1.5;
+}
+.course_list .course_gaiyou li {
+  font-size: 13px;
+}
+.course_list .discount_price {
+  font-size: 19px;
+}
+.course_list .tuition {
+  font-size: 16px;
+}
+
+/*--------------------
+タグ情報
+---------------------*/
+.list_tags li {
+  display: inline-block;
+  padding: 3px;
+  background: #fff;
+  width: auto;
+  color: #DB4620;
+  border: 1px solid #DB4620;
+  margin: 0 10px 0 0;
+  line-height: 1;
+  border-radius: 3px;
+  font-size: 10px;
+  white-space: nowrap;
+}
+@media all and (min-width: 751px) {
+  .list_tags {
+    margin-top: 10px;
+  }
+  .list_tags li {
+    font-size: 9px;
+  }
+}
+
+/*--------------------
+ページネーション
+---------------------*/
+.pager {
+  margin-top: 20px;
+  padding: 0 40px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.pager a {
+  display: inline-block;
+  line-height: 1;
+  padding: 0 5px 5px;
+  margin: 5px 5px 0;
+  color: #00ABE7;
+  font-weight: 700;
+  font-size: 15px;
+  border-bottom: 2px solid;
+  border-color: transparent;
+}
+.pager a.jp-current {
+  border-color: #00ABE7;
+}
+.pager .jp-previous,
+.pager .jp-next {
+  position: absolute;
+  color: transparent;
+  padding: 0;
+  margin: 0;
+  width: 26px;
+  height: 26px;
+  top: 0;
+  color: transparent;
+  background: #F5F5F7;
+  border: none;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+}
+.pager .jp-previous::before,
+.pager .jp-next::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(50% - 5px);
+  width: 0;
+  height: 0;
+  font-size: 0;
+}
+.pager .jp-previous {
+  left: 0;
+}
+.pager .jp-previous::before {
+  left: 8px;
+  border-style: solid;
+  border-width: 5px 6px 5px 0;
+  border-color: transparent #FC4317 transparent transparent;
+}
+.pager .jp-next {
+  right: 0;
+}
+.pager .jp-next::before {
+  right: 8px;
+  border-style: solid;
+  border-width: 5px 0 5px 6px;
+  border-color: transparent transparent transparent #FC4317;
+}
+@media all and (min-width: 751px) {
+  .pager {
+    margin-top: 45px;
+    padding: 0 55px;
+  }
+  .pager a {
+    font-size: 16px;
+    margin: 10px 25px 0;
+    padding-bottom: 10px;
+  }
+  .pager .jp-previous,
+.pager .jp-next {
+    width: 38px;
+    height: 38px;
+    position: relative;
+  }
+  .pager .jp-previous::before,
+.pager .jp-next::before {
+    top: calc(50% - 7px);
+  }
+  .pager .jp-previous {
+    margin-right: 25px;
+  }
+  .pager .jp-previous::before {
+    left: 12px;
+    border-width: 7.5px 10px 7.5px 0;
+  }
+  .pager .jp-next {
+    margin-left: 25px;
+  }
+  .pager .jp-next::before {
+    right: 12px;
+    border-width: 7.5px 0 7.5px 10px;
+  }
+}
+
+/*--------------------↑↑↑↑↑↑「courselist.scss」をコピーしていじってます。↑↑↑↑↑↑------------------------------*/
+/*--------------------
+各一覧の共通部分
+---------------------*/
+.top_course_list {
+  background: #fff;
+  border: 1px solid #D9D7C9;
+}
+
+.top_course_java, .top_course_spring, .top_course_learn {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 10px;
+}
+@media all and (max-width: 750px) {
+  .top_course_java, .top_course_spring, .top_course_learn {
+    padding: 0 0px;
+    margin: 0 0 30px;
+  }
+}
+
+.top_course_new_tit, .top_course_java_tit, .top_course_spring_tit, .top_course_learn_tit {
+  font-size: 20px;
+  padding: 0px 0 0 40px;
+  font-weight: bold;
+}
+
+/*--------------------
+コース「新着一覧」
+---------------------*/
+.top_course_new {
+  max-width: 1480px;
+  margin: 0 auto;
+}
+@media all and (max-width: 750px) {
+  .top_course_new {
+    padding: 0px;
+    margin: 0 0 50px;
+  }
+}
+
+.top_course_new_inner {
+  background: #F1F1F3;
+  border: solid 1px #D9D7C9;
+  margin: 0 40px;
+}
+@media all and (min-width: 751px) {
+  .top_course_new_inner {
+    border-radius: 10px;
+  }
+}
+@media all and (max-width: 750px) {
+  .top_course_new_inner {
+    margin: 0;
+  }
+}
+
+.top_course_new_tit {
+  font-size: 20px;
+  padding: 25px 0 0 40px;
+}
+
+.c_thumb {
+  overflow: hidden;
+  border-radius: 3px;
+}
+.c_thumb img {
+  width: 100%;
+}
+
+a:hover .c_thumb img {
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+/*--------------------
+共通部分
+「受講の方法」「途中にあるコースカテゴリーのメニュー」「お知らせ」
+---------------------*/
+.top_flow_tit, .top_course_tit, .top_news_tit {
+  font-size: 30px;
+  margin: 40px 0;
+  font-weight: bold;
+}
+@media all and (max-width: 750px) {
+  .top_flow_tit, .top_course_tit, .top_news_tit {
+    font-size: 20px;
+    margin: 20px 0;
+  }
+}
+
+/*--------------------
+途中にあるコースカテゴリーのメニュー
+---------------------*/
+.top_course {
+  padding: 10px;
+  text-align: center;
+  background: #F4F7FF;
+}
+
+.top_course_content {
+  max-width: 1300px;
+  margin: 20px auto 50px;
+}
+.top_course_content ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.top_course_content ul a {
+  width: 21%;
+  margin: 0 0 10px 0;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.top_course_content ul a:nth-child(odd) {
+  margin: 0 10px 10px 0;
+}
+@media all and (max-width: 750px) {
+  .top_course_content ul a {
+    width: 48%;
+    margin: 0 0 10px 0;
+  }
+}
+.top_course_content ul a li {
+  border-top: 3px solid #DB4620;
+  padding: 15px 0px;
+  background: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 5px 5px 2px #e6e9f1;
+          box-shadow: 5px 5px 2px #e6e9f1;
+  margin: 0 0 40px;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+@media all and (max-width: 750px) {
+  .top_course_content ul a li {
+    margin: 0;
+  }
+}
+.top_course_content ul a:hover {
+  top: 5px;
+  left: 5px;
+}
+.top_course_content ul a:hover li {
+  -webkit-box-shadow: 0px 0px 2px #e6e9f1;
+          box-shadow: 0px 0px 2px #e6e9f1;
+}
+
+/*--------------------
+お知らせ
+---------------------*/
+.top_news {
+  padding: 10px;
+  text-align: center;
+}
+
+.news_content {
+  max-width: 1000px;
+  margin: 20px auto 50px;
+}
+@media all and (max-width: 750px) {
+  .news_content {
+    padding: 0 10px;
+  }
+}
+.news_content li {
+  border-bottom: 1px solid #E2E0D4;
+  padding: 20px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.news_content li .post_date {
+  font-size: 15px;
+  width: 20%;
+}
+@media all and (max-width: 750px) {
+  .news_content li .post_date {
+    width: 30%;
+    text-align: left;
+  }
+}
+.news_content li .post_tit {
+  font-size: 17px;
+  color: #4967BB;
+}
+.news_content li:hover {
+  padding: 20px 0 20px 20px;
+}
+.news_content li:hover .post_tit {
+  color: #22AAE2;
+}
+
+/*--------------------
+法人
+---------------------*/
+#business {
+  position: relative;
+  font-family: "小塚ゴシック Pro", "Kozuka Gothic Pro", "Noto Sans JP", sans-serif;
+}
+#business .texts {
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  top: 50%;
+  width: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  text-align: center;
+}
+#business .biz_title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+}
+#business .biz_lead {
+  font-size: 14px;
+  color: #fff;
+  margin: 10px 0 20px;
+}
+#business .btn_round {
+  display: inline-block;
+  background-color: #fff;
+  color: #333333;
+  line-height: 45px;
+  border-radius: 23px;
+  -webkit-box-shadow: 4px 4px 9px rgba(0, 0, 0, 0.16);
+          box-shadow: 4px 4px 9px rgba(0, 0, 0, 0.16);
+  border: none;
+  font-size: 11px;
+  font-weight: 400;
+  width: 100%;
+  max-width: 192px;
+}
+@media all and (min-width: 751px) {
+  #business .biz_title {
+    font-size: 22px;
+  }
+  #business .biz_lead {
+    font-size: 16px;
+  }
+  #business .btn_round {
+    font-size: 15px;
+    max-width: 280px;
+    line-height: 50px;
+    border-radius: 45px;
+  }
+}
+@media all and (min-width: 1101px) {
+  #business .biz_title {
+    font-size: 35px;
+  }
+  #business .biz_lead {
+    font-size: 22px;
+    margin: 15px 0 30px;
+  }
+  #business .btn_round {
+    font-size: 20px;
+    max-width: 384px;
+    line-height: 90px;
+    border-radius: 45px;
+  }
+}
+@media screen and (min-width: 1300px) {
+  #business .biz_lead {
+    margin: 20px 0 40px;
+  }
+}
+@media all and (min-width: 1801px) {
+  #business .image {
+    height: 430px;
+  }
+  #business .image img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    height: 100%;
+  }
+}
+
+.dialogue_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 20px;
+}
+
+.dialogue_btn_course, .dialogue_btn_purchase {
+  font-size: 16px;
+  border-radius: 5px;
+  text-align: center;
+}
+.dialogue_btn_course a, .dialogue_btn_purchase a {
+  width: 100%;
+  display: block;
+  padding: 5px 0;
+  color: #fff;
+}
+
+.dialogue_btn .dialogue_btn_course {
+  background: #363636;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.dialogue_btn .dialogue_btn_purchase {
+  background: #DB4620;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.dialogue_btn a:hover .dialogue_btn_course {
+  background: #666666;
+}
+.dialogue_btn a:hover .dialogue_btn_purchase {
+  background: #FB7F2D;
+}
+
+/*--------------------
+Slickの矢印
+---------------------*/
+.slick-prev,
+.slick-next {
+  width: 26px;
+  height: 26px;
+  color: transparent;
+  background: #F5F5F7;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+}
+.slick-prev::before,
+.slick-next::before {
+  content: "";
+  width: 0;
+  height: 0;
+  font-size: 0;
+}
+
+.slick-prev {
+  left: 30px;
+}
+.slick-prev::before {
+  border-style: solid;
+  border-width: 5px 6px 5px 0;
+  border-color: transparent #FC4317 transparent transparent;
+}
+
+.slick-next {
+  right: 30px;
+}
+.slick-next::before {
+  border-style: solid;
+  border-width: 5px 0 5px 6px;
+  border-color: transparent transparent transparent #FC4317;
+}
+
+.slick-prev,
+.slick-next {
+  width: 38px;
+  height: 38px;
+}
+@media all and (max-width: 750px) {
+  .slick-prev,
+.slick-next {
+    opacity: 0;
+  }
+}
+
+.slick-prev::before {
+  border-width: 7.5px 10px 7.5px 0;
+}
+
+.slick-next::before {
+  border-width: 7.5px 0 7.5px 10px;
+}
+
+/*--------------------
+バルーンダイアログ
+---------------------*/
+/*popoverのスタイル変更*/
+.popover-header {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.bs-popover-auto[x-placement^=right], .bs-popover-right {
+  margin-left: -20px !important;
+}
+
+.popover_cols {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.popover_cols a {
+  display: block;
+  color: #fff;
+  width: 49%;
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+  padding: 10px 0;
+  border-radius: 4px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.popover_cols a:nth-of-type(1) {
+  background: #363636;
+}
+
+.popover_cols a:nth-of-type(2) {
+  background: #DB4620;
+}
+
+@media screen and (min-width: 1101px) {
+  .popover_cols a:hover {
+    opacity: 0.8;
+    color: #fff;
+  }
+}
+ul.course_gaiyou {
+  margin: 10px 0;
+}
+ul.course_gaiyou li:before {
+  content: "●";
+  font-size: 12px;
+}
+
+p.course_sub_title_dialogue {
+  margin: 10px 0;
+}
+
+/*--------------------
+バルーンのライブラリの打ち消し
+---------------------*/
+p {
+  margin-bottom: 0;
+}
+
+dl, ol, ul {
+  margin-bottom: 0;
+}
+
+a:hover {
+  color: #4d4d4d;
+  text-decoration: none;
+}
+
+.h1, h1 {
+  font-size: unset;
+}
+
+body {
+  color: unset;
+  text-align: unset;
+  background-color: unset;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-family: "小塚ゴシック Pro", "Kozuka Gothic Pro", "Noto Sans JP", sans-serif;
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+}
+/*# sourceMappingURL=top.css.map */

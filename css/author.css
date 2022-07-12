@@ -1,0 +1,94 @@
+@charset "UTF-8";
+/*-------------------------------------------*/
+/* 作成者    　 　 　 　 　                    */
+/*-------------------------------------------*/
+/*-------------------------------------------*/
+/* mixin                                     */
+/*-------------------------------------------*/
+/*-------------------------------------------*/
+/* variable                                  */
+/*-------------------------------------------*/
+.contents {
+  padding-top: 100px;
+}
+
+#author {
+  margin: 50px 0;
+  border: 1px solid #C5C5C5;
+  background: #fff;
+  padding: 25px 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+#author .author_cols {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+#author .author_img {
+  width: 120px;
+  height: 120px;
+}
+#author .author_img .round {
+  width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+#author .author_texts {
+  width: calc(100% - 140px);
+}
+#author .author_name {
+  font-size: 13px;
+  font-weight: bold;
+  color: #363636;
+}
+#author .author_name span {
+  margin: 0 0 0 10px;
+}
+#author .author_position {
+  font-size: 11.5px;
+  margin-top: 10px;
+  line-height: 1.2;
+  color: #363636;
+}
+#author .author_position span {
+  margin: 0 0 0 10px;
+}
+#author .author_description {
+  font-size: 11.5px;
+  margin-top: 10px;
+  line-height: 1.47;
+  color: #656565;
+}
+@media all and (min-width: 751px) {
+  #author {
+    padding: 30px;
+  }
+  #author .author_img {
+    width: 110px;
+    height: 110px;
+  }
+  #author .author_texts {
+    width: calc(100% - 140px);
+  }
+  #author .author_name {
+    font-size: 20px;
+  }
+  #author .author_position {
+    font-size: 16px;
+    margin-top: 15px;
+  }
+  #author .author_description {
+    font-size: 15px;
+    margin-top: 20px;
+    line-height: 1.86;
+  }
+}
+@media all and (min-width: 1101px) {
+  #author {
+    padding: 30px 40px;
+  }
+}

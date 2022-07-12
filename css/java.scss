@@ -1,0 +1,574 @@
+/*-------------------------------------------*/
+/* コース一覧(検索結果,タグ,カテゴリ一覧共通)     */
+/*-------------------------------------------*/
+@charset "utf-8";
+@import "_mixin";
+/*--------------------
+個別変数定義
+---------------------*/
+$cos_navy:#003C78;
+$cos_blue:#00ABE7;
+body {
+  background: #F7F7F7;
+}
+/*--------------------
+ページ共通
+---------------------*/
+.contents {
+  padding-top: 50px;
+  background: #fff;
+  @media screen and (min-width: ($menu_width)+1) {
+    padding-top: 0;
+  }
+}
+
+html {
+  color: #000;
+}
+/*--------------------
+inner
+---------------------*/
+.contents_head,
+.contents_body {
+  .inner {
+    max-width: 1200px;
+  }
+  @media screen and (min-width: 1025px) {
+    .inner {
+      margin:0 auto;
+    }
+  }
+}
+
+
+
+
+
+/*--------------------
+ヘッダー
+---------------------*/
+
+
+.contents_head {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.java_text {
+  width: 45%;
+  margin: 0 20px 0px 0;
+  @include mediaSP{
+    width: 100%;
+    margin: 0 20px;
+  }
+}
+.java_text_catch {
+  display: flex;
+  flex-flow: row-reverse;
+  justify-content: flex-end;
+}
+
+.java_text_catch {
+  display: flex;
+  justify-content: space-between;
+}
+
+.java_text_detail {
+  margin: 30px 0 0;
+  @include mediaSP{
+    margin: 0px 0 0;
+  }
+  &.pc{
+    @include mediaSP{
+      display:none;
+    }
+  }
+  &.sp{
+    @include mediaTB{
+      display:none;
+    }
+    padding:0 20px;
+  }
+}
+.java_image {
+  width: 30%;
+  text-align: right;
+  @include mediaSP{
+    width: auto;
+  }
+  img{
+    height: 300px;
+    @include mediaSP{
+      height: auto;
+    }
+  }
+}
+
+/*--------------------
+「Java」セクション
+---------------------*/
+.java_tit {
+  background: #003C78;
+  color: #fff;
+  text-align: center;
+  font-size: 38px;
+  padding: 10px;
+  @include mediaSP{
+    font-size: 20px;
+  }
+}
+
+.java_tree_basis {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.java_tree_tit {
+  margin: 0 0 20px;
+  background: #505050;
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
+  padding: 10px;
+  @include mediaSP{
+    font-size: 16px;
+    margin: 0 0 10px;
+  }
+}
+
+
+
+.java_tree_text {
+  margin: 0 0 60px;
+  border: 1px solid #505050;
+  text-align: center;
+  position: relative;
+  @include mediaSP{
+    margin: 10px 0 40px;
+  }
+
+  &:last-child{
+    margin: 0;
+    &::after{
+      display: none;
+    }
+  }
+  &.line{
+    &::after{
+      position: absolute;
+      content: "";
+      background-size: contain;
+      left: 50%;
+      background-image: url(../images/map/java_arrow.png);
+      background-repeat: no-repeat;
+      width: 20px;
+      height: 60px;
+      margin-left: -10px;
+      @include mediaPC{
+        width: 30px;
+        height: 100px;
+        margin-left: -15px;
+      }
+    }
+  }
+}
+
+.java_tree_text_l{
+  font-size: 25px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include mediaSP{
+    font-size: 14px;
+  }
+  a{
+    padding: 20px;
+  }
+  &.nolink{
+    padding: 20px;
+  }
+}
+
+.java_tree_text_s{
+  display: block;
+  border-top: 1px solid #505050;
+  font-size: 18px;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  @include mediaSP {
+    font-size: 12px;
+    height: 80px;
+  }
+}
+
+
+
+.java_tree_line{
+  img{
+    @include mediaSPTB{
+      display: none;
+    }
+  }
+  &::after{
+    @include mediaSPTB{
+      position: absolute;
+      content: "";
+      width: 20px;
+      background-size: contain;
+      height: 60px;
+      left: 50%;
+      margin-left: -10px;
+      background-image: url(../images/map/java_arrow.png);
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+
+.java_tree_else {
+  @include mediaPC{
+    display: flex;
+    justify-content: space-between;
+  }
+  @include mediaSPTB{
+    margin: 40px 0 0;
+  }
+}
+
+
+.java_tree_else_left {
+  @include mediaPC{
+    width: 48%;
+  }
+}
+
+.java_tree_else_right {
+  @include mediaPC{
+    width: 48%;
+  }
+  @include mediaSP{
+    margin: 40px 0 0;
+  }
+}
+
+
+
+
+.framework_tit {
+  border-bottom: 1px solid #B3B3B3;
+  font-size: 38px;
+  margin: 80px 0 0;
+  font-weight: bold;
+  @include mediaSP{
+    font-size: 20px;
+  }
+}
+
+
+.course_register {
+  
+  text-align: center;
+  margin: 80px auto;
+  font-size: 26px;
+  max-width: 840px;
+  
+  a{
+    position:relative;
+    background:#eb681b;
+    color:#fff !important;
+    display:block;
+    //border: 1px solid #EA5431;
+    padding: 10px 50px;
+    max-width:450px;
+    margin:0 auto;
+    border-radius:40px;
+    &::before {
+      content: "";
+      position: absolute;
+      right: 24px;
+      width: 15px;
+      height: 2px;
+      background: #fff;
+      top: 50%;
+      margin-top: -1px;
+      @include trans;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      right: 24px;
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid #fff;
+      border-right: 2px solid #fff;
+      transform: rotate(45deg);
+      top: 50%;
+      margin-top: -5px;
+      @include trans;
+    }
+  }
+  @include mediaSP {
+    font-size: 16px;
+  }
+  @include mediaTB {
+    a {
+      max-width:600px;
+      padding: 15px 50px;
+      @include trans;
+    }
+  }
+  @include mediaPC {
+    a {
+      &:hover {
+        background:rgba(235,104,27,0.7);
+        &::before {
+          right:20px;
+        }
+        &::after {
+          right:20px;
+        }
+      }
+    }
+  }
+}
+
+.java_note {
+  font-size: 26px;
+  margin: 20px 0px;
+
+  @include mediaSP{
+    font-size: 14px;
+  }
+  &.space{
+    padding: 30px 0 0;
+    a{
+      color: #00ABE7;
+      &:hover{
+        opacity: 0.7;
+      }
+    }
+  }
+  &.space2{
+    padding: 10px 0 0;
+    a{
+      color: #00ABE7;
+      &:hover{
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+
+.framework_table {
+  table{
+    border: 1px solid rgb(143, 137, 137);
+    width: 100%;
+    border-radius: 5px;
+    border-collapse: inherit;
+    @include mediaPC{
+      br{
+        display: none;
+      }
+    }
+  }
+  th{
+    border-bottom: 1px solid rgb(143, 137, 137);
+    font-size: 38px;
+    padding: 10px;
+    background: #F7F7F7;
+    font-weight: bold;
+    @include mediaSP{
+      font-size: 17px;
+    }
+    &:first-child{
+      width: 42%;
+      border-right: 1px solid rgb(143, 137, 137);
+      border-radius: 4px 0 0 0;
+    }
+    &:last-child{
+      border-radius: 0 4px 0 0 ;
+    }
+  }
+  td{
+    //border: 1px solid rgb(143, 137, 137);
+    font-size: 18px;
+    text-align: left;
+    padding: 40px;
+    @include mediaSP{
+      font-size: 11px;
+      padding: 20px;
+    }
+    &:first-child{
+      border-right: 1px solid rgb(143, 137, 137);
+      font-size: 26px;
+      text-align: center;
+      vertical-align: middle;
+      @include mediaSP{
+        font-size: 14px;
+      }
+    }
+    a{
+      color: #00ABE7;
+      &:hover{
+        opacity: 0.7;
+      }
+    }
+  }
+  tr{
+    td{
+      border-bottom: 1px solid rgb(143, 137, 137);
+    }
+    &:last-child{
+      td{
+        border-bottom:none;
+      }
+    }
+  }
+}
+/*--------------------
+セクションタイトル
+---------------------*/
+.article_title {
+  color:$cos_navy;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  margin-bottom: 1em;
+  @include mediaTB {
+    font-size: 18px;
+  }
+}
+
+
+/*--------------------
+本文
+---------------------*/
+.contents_body {
+  padding:20px 0;
+  p {
+    line-height: 2;
+    margin: 0 0 20px;
+    text-align: center;
+    &+.article_title {
+      margin-top: 30px;
+    }
+    &+.list_num {
+      margin-top: 1em;
+    }
+  }
+  a {
+    color:$cos_navy;
+  }
+  @include mediaTB {
+    padding:20px 0;
+    font-size: 14px;
+  }
+  @include mediaPC {
+    padding:60px 0;
+    a {
+      display: block;
+      width: 100%;
+      @include trans;
+      &:hover {
+        color: $cos_blue;
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
+
+/*--------------------
+法人
+---------------------*/
+#business {
+  position: relative;
+  font-family: '小塚ゴシック Pro','Kozuka Gothic Pro','Noto Sans JP', sans-serif;
+  .texts {
+    position: absolute;
+    z-index: 1;
+    right: 20px;
+    top: 50%;
+    width: 50%;
+    transform:translateY(-50%);
+    text-align: center;
+  }
+  .biz_title {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1;
+  }
+  .biz_lead {
+    font-size: 14px;
+    color: #fff;
+    margin:10px 0 20px;
+  }
+  .btn_round {
+    display: inline-block;
+    background-color: #fff;
+    color:#333333;
+    line-height: 45px;
+    border-radius: 23px;
+    box-shadow: 4px 4px 9px rgba(0,0,0,0.16);
+    border:none;
+    font-size: 11px;
+    font-weight: 400;
+    width: 100%;
+    max-width: 192px;
+  }
+  @include mediaTB {
+    .biz_title {
+      font-size: 22px;
+    }
+    .biz_lead {
+      font-size: 16px;
+    }
+    .btn_round {
+      font-size: 15px;
+      max-width: 280px;
+      line-height: 50px;
+      border-radius: 45px;
+    }
+  }
+  @include mediaPC {
+    .biz_title {
+      font-size: 35px;
+    }
+    .biz_lead {
+      font-size: 22px;
+      margin:15px 0 30px;
+    }
+    .btn_round {
+      font-size: 20px;
+      max-width: 384px;
+      line-height: 90px;
+      border-radius: 45px;
+    }
+  }
+  @media screen and (min-width: 1300px) {
+    .biz_lead {
+      margin:20px 0 40px;
+    }
+  }
+  @include mediaGT {
+    .image {
+      height: 430px;
+      img {
+        object-fit:cover;
+        height: 100%;
+      }
+    }
+  }
+}

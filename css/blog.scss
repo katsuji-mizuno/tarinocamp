@@ -1,0 +1,647 @@
+/*-------------------------------------------*/
+/* トップページ 　 　 　 　 　                    */
+/*-------------------------------------------*/
+@charset "utf-8";
+@import "_mixin";
+
+
+/*-------------------------------------------*/
+/* commonの打ち消し 　 　 　 　 　               */
+/*-------------------------------------------*/
+.contents {
+  @include mediaMaxMN{
+  padding-top: 50px;
+}
+}
+
+/*--------------------
+MainVisual
+---------------------*/
+
+.blog_mv_wrap {
+
+}
+
+.blog_mv_01,.blog_mv_02{
+  height: 460px;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position-y: center;
+  background-position:center;
+  background-size: contain;
+  @include mediaSP{
+    height: 260px;
+  }
+}
+
+.blog_mv_01{
+  background-image: url(../images/blog/bg_blog01_pc.jpg);
+  background-color: #fff;
+
+  @include mediaSP{
+    background-image: url(../images/blog/bg_blog01_sp.jpg);
+  }
+}
+
+.blog_mv_02{
+  background-image: url(../images/blog/bg_blog02_pc.jpg);
+  background-color: #EBEFF4;
+  @include mediaSP{
+    background-image: url(../images/blog/bg_blog02_sp.jpg);
+  }
+}
+
+
+/*--------------------
+Slick
+---------------------*/
+
+.slider{
+  margin: 0 auto;
+  width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #000;
+}
+
+.slick-dots {
+  bottom: -5px;
+}
+
+.slick-dots li {
+  width: 50px;
+}
+
+
+
+.slick-dots li button:before {
+  content: "";
+  height: 3px;
+  width: 40px;
+  background-color: #C1C1C2;
+}
+.slick-dots li.slick-active button:before
+{
+
+  content: "";
+  background-color: #DB4620;
+}
+
+.slick-next {
+  right: 25px;
+}
+
+.slick-prev {
+  left: 25px;
+  z-index: 1;
+}
+
+.slick-dotted.slick-slider {
+    margin-bottom: 0px;
+
+}
+
+/*--------------------
+記事一覧とサイドメニューのラップ
+---------------------*/
+
+.blog_main {
+  position: relative;
+
+  max-width: 1300px;
+  margin: 0 auto;
+
+  @include mediaPC{
+    display: flex;
+  }
+  @include mediaSP{
+    padding: 0px;
+  }
+}
+
+/*--------------------
+ブログパーツ
+---------------------*/
+.blog_thumnail {
+  height: 180px;
+  overflow: hidden;
+  z-index: 0;
+  img{
+    min-height: 180px;
+    min-width: 290px;
+  }
+}
+
+.blog_text {
+  padding: 30px;
+  @include mediaSP{
+    position: relative;
+  }
+}
+.blog_date {
+  font-size: 16px;
+}
+
+
+.blog_modi_date {
+  color:#A59D9D;
+  font-size: 14px;
+  position: relative;
+  padding: 10px 0 0 30px;
+  @include mediaSP{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  &::before{
+    content: "";
+    background-image: url(../images/blog/icon_update.png);
+    width: 18px;
+    height: 16px;
+    position: absolute;
+    left: 0px;
+    background-size: contain;
+    top: 12px;
+  }
+}
+
+.blog_cate {
+  padding: 5px;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  width: 110px;
+  margin: -15px auto 0;
+  z-index: 10;
+  position: absolute;
+  left: 50%;
+  margin-left: -55px;
+  font-size: 13px;
+}
+
+.spring{.blog_cate {  background: #6C3BA9;}}
+.python{.blog_cate {  background: #AB5429;}}
+.engineer{.blog_cate {  background: #6B8E70;}}
+.news{.blog_cate {  background: #888;}}
+
+.blog_title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 60px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 20px;
+  margin: 0 0 20px;
+  @include mediaSP{
+    height: 56px;
+    font-size: 18px;
+    margin: 10px 0 0px;
+  }
+
+}
+
+
+/*--------------------
+共通部分「人気記事」「新着記事」「Spring」
+---------------------*/
+.blog_popular,.blog_new,.blog_spring  {
+  position: relative;
+  @include mediaPC{
+    width: 120vw;
+    margin: 0 calc(50% - 50vw);
+    ul{
+      display: flex;
+    }
+  }
+  @include mediaSP{
+    padding: 20px 40px;
+
+  }
+}
+.blog_popular_inner,.blog_new_inner,.blog_spring_inner{
+  max-width: 900px;
+  @include mediaPC{
+    width: 45%;
+    margin: 0 calc(50% - 36vw);
+    padding: 20px 0;
+  }
+}
+
+.blog_popular_item,.blog_new_item, .blog_spring_item{
+  background:#EBF0F6 ;
+  position: relative;
+  margin: 0 0 20px;
+  @include mediaPC{
+    width: 33%;
+    margin: 0px 20px 20px 0;
+  }
+
+  a{
+    z-index: 1;
+  }
+}
+
+
+.blog_popular_tit,.blog_new_tit,.blog_spring_tit{
+  margin: 0 0 10px;
+  padding: 20px 0 0;
+  font-weight: bold;
+  @include mediaSP{
+    font-size: 17px;
+    text-align: center;
+    margin: 0 0 20px;
+  }
+}
+
+/*--------------------
+人気記事
+---------------------*/
+
+.blog_popular {
+  background:linear-gradient(#DB685C, #E2775C)
+}
+
+.blog_popular_tit {
+  color: #fff;
+}
+
+
+
+.blog_wrap {
+  @include mediaPC{
+    width: 70%;
+  }
+}
+
+
+
+/*--------------------
+もっと見るのボタン
+---------------------*/
+
+.p-post-btn,.p-post-btn_2,.p-post-btn_3 {
+  border-radius: 30px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  margin: 10px auto;
+  @include mediaPC{
+    width: 349px;
+
+  }
+}
+
+.p-post-btn {
+  border: 1px solid #fff;
+  color: #fff;
+  position: relative;
+  &::before{
+    content: "";
+    position: absolute;
+    top: 21px;
+    right: 29px;
+    width: 10px;
+    height: 2px;
+    background: #fff;
+  }
+  &::after{
+    content: "";
+    position: absolute;
+    top: 17px;
+    right: 28px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+  }
+}
+
+
+.p-post-btn_2,.p-post-btn_3  {
+  border: 1px solid #364051;
+  position: relative;
+  &::before{
+    content: "";
+    position: absolute;
+    top: 21px;
+    right: 29px;
+    width: 10px;
+    height: 2px;
+    background: #364051;
+  }
+  &::after{
+    content: "";
+    position: absolute;
+    top: 17px;
+    right: 28px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #364051;
+    border-right: 2px solid #364051;
+    transform: rotate(45deg);
+  }
+}
+
+
+
+
+/*--------------------
+サイドメニュー
+---------------------*/
+.side_menu {
+  z-index: 1;
+  margin:  20px;
+
+  @include mediaPC{
+    width: 30%;
+    max-width: 358px;
+    margin: 0 0 0 20px;
+  }
+}
+
+.side_menu_cate_tit {
+    margin: 20px 0 ;
+    font-weight: bold;
+  @include mediaSP{
+    font-size: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+.side_menu_bnr {
+  margin: 77px 0 0;
+}
+
+.side_menu_cate {
+  background: #fff;
+  margin: 30px 0 0;
+  @include mediaPC{
+    padding: 20px;
+  }
+  img{
+    width: 100px;
+    margin: 0 10px 0 0;
+  }
+}
+
+.side_menu_cate_list {
+  li{
+    border-bottom:1px solid #BFC1C4;
+    padding: 10px 0;
+    a{
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+
+.side_menu_cate_list_image {
+  width: 100px;
+  height: 100px;
+}
+
+.side_menu_cate_list_text {
+  margin: 0 0 0 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+.side_menu_bnr2 {
+  padding: 20px;
+  img{
+    margin: 0 0 30px ;
+  }
+  @include mediaSP{
+    padding: 20px 0;
+  }
+}
+
+div#main {
+  @include mediaPC{
+    width: 70%;
+  }
+}
+
+.blog_foot_bnr {
+
+  padding: 40px;
+  @include mediaPC{
+    width: 120vw;
+    margin: 0 calc(50% - 50vw);
+  }
+}
+
+.blog_foot_bnr_inner {
+
+  max-width: 912px;
+  @include mediaPC {
+    width: 45%;
+    margin: 0 calc(50% - 36vw);
+    ul{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    li{
+      width: 24%;
+    }
+  }
+  li{
+    margin: 0px 9px 9px 0;
+  }
+}
+/*--------------------
+ポップアップメニュー
+---------------------*/
+#blog_popup_banner {
+  display:none;
+  .popup_overlay {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    top: -5000px;
+    right: -5000px;
+    bottom: -5000px;
+    left: -5000px;
+    backface-visibility: hidden;
+    background: rgba(43, 46, 56, 0.9);
+    display: block;
+  }
+  .popup_wrapper {
+    position: fixed;
+    padding: 10px 10px 0;
+    z-index: 10001;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    overflow: auto;
+    text-align: center;
+    display:block;
+    &::after {
+      content: "";
+      display: inline-block;
+      height: 100%;
+      margin-left: -0.05em;
+      vertical-align: middle;
+    }
+  }
+  .popup_contents {
+    position: relative;
+    outline: none;
+    box-sizing: border-box;
+    width: 100%;
+    transform: translate3d(0, 0, 0);
+    vertical-align: middle;
+    max-width:400px;
+    display:inline-block;
+  }
+  .popup_banner {
+    box-sizing: border-box;
+    width: 100%;
+    transform: translate3d(0, 0, 0);
+    vertical-align: middle;
+    display:inline-block;
+  }
+  .popup_close {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    display: block;
+    overflow: visible;
+    width: 35px;
+    height: 35px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s;
+    text-decoration: none;
+    color: #95979c;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    display:inline-block;
+  }
+  @include mediaSP {
+    .popup_wrapper {
+      padding:70px 10px 0;
+      left:50%;
+      top:50%;
+      width:90%;
+      right:auto;
+      bottom:auto;
+
+      transform:translate(-50%,-50%);
+    }
+    .popup_close {
+      top:-50px;
+      right: 0;
+    }
+  }
+}
+/*--------------------
+サイドバナー制御用
+---------------------*/
+#aside_sticky {
+  &.sticky_fixed {
+    position:sticky;
+    top:0;
+  }
+}
+/*--------------------
+ブログフッター固定バナー
+---------------------*/
+#blog_footer_banner {
+  display:none;
+  position:fixed;
+  left:0;
+  bottom:0;
+  background:rgba(255,255,255,0.8);
+  width:100%;
+  padding:40px 20px 30px 20px;
+  z-index:50;
+  &.show {
+    display:block;
+  }
+  .bf_banners {
+    display:flex;
+    justify-content:center;
+  }
+  .bf_ban {
+    position:relative;
+    display:block;
+    width:100%;
+    max-width:500px;
+    margin:0 auto;
+    padding:18px;
+    background: #3E539F;
+    border: 1px solid #3E539F;
+    box-shadow: 2px 4px 2px #ccc;
+    color:#fff;
+    border-radius: 9999px;
+    text-align:center;
+  }
+  .bf_close {
+    width:20px;
+    height:20px;
+    display:block;
+    position:absolute;
+    left:20px;
+    top:10px;
+    z-index:51;
+  }
+  @include mediaSP {
+    .bf_banners {
+      li {
+         width:100%;
+      }
+    }
+  }
+  @include mediaTB {
+    .bf_banners {
+      li {
+        margin: 0 10px;
+      }
+    }
+    .bf_ban {
+      font-weight:bold;
+      display:inline-block;
+      padding:18px 40px;
+    }
+  }
+  @include mediaPC {
+    .bf_ban {
+      @include trans;
+      position:relative;
+      outline: none;
+      overflow: hidden;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+        transform: skewX(-25deg);
+      }
+      &:hover {
+        box-shadow:none;
+        &::before {
+          animation: shine 0.7s;
+        }
+      }
+    }
+  }
+  @keyframes shine {
+    100% {
+      left: 125%;
+    }
+  }
+}

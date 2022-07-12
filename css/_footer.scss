@@ -1,0 +1,142 @@
+
+/*=================
+  footer
+=================*/
+#footer{
+  background: #fff;
+  position: relative;
+  padding:55px 40px;
+  width: 100%;
+  font-size: 15px;
+  @include mediaSP{
+    padding:40px 20px;
+  }
+  @include bbox;
+
+  .logo_menu_warp {
+    @include mediaTB{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .logo_f {
+    width: 230.58px;
+    @include mediaSPTB{
+      min-width: 124px;
+      width: 40%;
+    }
+  }
+
+  .menu_wrap{
+    width: calc(100% - 300px);
+    @include mediaSPTB{
+      margin: 50px 0 0;
+      width: 100%;
+    }
+  }
+
+  .col {
+    display: flex;
+    justify-content: flex-end;
+    ul{
+      margin: 0 60px 0 0;
+      @include mediaSP{
+        margin: 0 12px 0 0;
+      }
+    }
+    li{
+      margin: 10px 0;
+      &:first-child{
+        margin: 0 0 20px;
+      }
+      a{
+        color: #365C71;
+      }
+
+    }
+  }
+  .f_menu_1{
+    display: block;
+    li{
+      @include mediaSPTB{
+        font-size: 12px;
+        padding: 0 0 0 20px;
+        position: relative;
+        &::before{
+          content: "";
+          border-top: 1px solid #ccc;
+          position: absolute;
+          width: 10px;
+          top: 9px;
+          left: 2px;
+        }
+      }
+      &:first-child{
+        font-size: 22px;
+        font-weight: bold;
+        @include mediaSPTB{
+          font-size: 15px;
+          padding: 0;
+          &::before{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .f_menu_2 {
+    ul{
+      @include mediaSP{
+        &:first-child{
+        margin: 0 0 40px;
+      }
+      }
+    }
+    li{
+      @include mediaSPTB{
+        font-size: 12px;
+        padding: 0 0 0 20px;
+        position: relative;
+        &::before{
+          content: "";
+          border-top: 1px solid #ccc;
+          position: absolute;
+          width: 10px;
+          top: 9px;
+          left: 2px;
+        }
+      }
+      &:first-child{
+        font-size: 22px;
+        font-weight: bold;
+        color: #365C71;
+        @include mediaSPTB{
+          font-size: 15px;
+          padding: 0;
+          &::before{
+            display: none;
+          }
+        }
+      }
+    }
+    @include mediaTB{
+      display: flex;
+    }
+  }
+
+
+  .box_copylight {
+    margin-top: 65px;
+    @include mediaSP{
+      text-align: center;
+      margin-top: 20px;
+    }
+    .copylight {
+      text-align: center;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1;
+    }
+  }
+}

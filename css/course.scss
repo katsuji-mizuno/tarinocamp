@@ -1,0 +1,1745 @@
+/*-------------------------------------------*/
+/* コース詳細　 　 　 　 　                    */
+/*-------------------------------------------*/
+@charset "utf-8";
+@import "_mixin";
+/*--------------------
+個別変数定義
+---------------------*/
+$cos_mgn: 10px;
+$cos_lineh:1.56;
+$cos_fsize:12px;
+$cos_fsize_pc:18px;
+$layout_mgn_tb: 32%;
+$layout_mgn_pc: 35%;
+$lightblue:#0071BC;
+
+/*--------------------
+ページ共通
+---------------------*/
+body {
+  font-size: 12px;
+  @include mediaTB {
+    font-size: 14px;
+  }
+  @include mediaPC {
+    font-size: 18px;
+  }
+}
+
+.hiragino {
+  font-family:
+  "Hiragino Sans","ヒラギノ角ゴ Pro","Hiragino Kaku Gothic Pro",
+  "Noto Sans JP", sans-serif;
+}
+.publicsans {
+  font-family:
+  "Hiragino Sans","ヒラギノ角ゴ Pro","Hiragino Kaku Gothic Pro",
+  'Public Sans', sans-serif;
+}
+a.btn_more {
+  display: block;
+  border:1px solid #0071BC;
+  border-radius: 4px;
+  line-height: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #0071BC;
+  text-align: center;
+  background:#fff;
+  margin-top: 20px;
+  @include mediaTB {
+    font-size: 14px;
+  }
+  @include mediaPC {
+    font-size: 15px;
+    line-height: 40px;
+    margin-top: 40px;
+  }
+}
+body {
+  @include mediaTB {
+    background: #F7F7F7;
+  }
+}
+.text {
+  font-size: 11px;
+  @include mediaPC {
+    font-size: 17px;
+  }
+}
+.contents {
+  padding-top: 50px;
+  @media screen and (min-width: ($menu_width)+1) {
+    padding-top: 0;
+  }
+}
+
+.no_disp {
+  display:none;
+  }
+
+/*--------------------
+レイアウト
+---------------------*/
+.layout {
+  @include mediaTB {
+    .contents_head {
+      background: #003C78;
+      background: linear-gradient(135deg, #15466e 0%, #1464a4 100%);
+      padding:40px 0;
+    }
+    .ch_inner {
+      margin:0 $tbLR;
+      position: relative;
+    }
+    .contents_body {
+      margin:0 $tbLR;
+    }
+    .cb_inner {
+      margin-left: $layout_mgn_tb;
+      background: #fff;
+      padding:40px 2%;
+      @include bbox;
+    }
+  }
+  @include mediaPC {
+    .cb_inner {
+      margin-left: 32.5%;
+      padding:70px 40px;
+    }
+  }
+  @media screen and (min-width: 1276px) {
+    .cb_inner {
+       margin-left: 385px;
+    }
+  }
+  @media screen and (min-width: 1381px) {
+    .ch_inner {
+      max-width: 1300px;
+      margin:0 auto;
+    }
+    .contents_body {
+      max-width: 1300px;
+      margin:0 auto;
+    }
+  }
+}
+/*--------------------
+該当無し
+---------------------*/
+#not_found {
+  @media screen and (min-width: 1381px) {
+    .inner {
+      max-width: 1300px;
+      margin:0 auto;
+    }
+  }
+}
+/*--------------------
+動画
+---------------------*/
+#moviePlayer {
+  padding:20px 40px;
+  @include bbox;
+  .wrap_movie {
+    position: relative;
+    overflow: hidden;
+    &::before {
+      padding-top: 56.25%;
+      display: block;
+      content: "";
+    }
+    iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+  }
+  .slick-prev,
+  .slick-next {
+    width: 26px;
+    height: 26px;
+    color: transparent;
+    background: #F5F5F7;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    border-radius: 50px;
+    &::before {
+      content:"";
+      width: 0;
+      height: 0;
+      font-size: 0;
+    }
+  }
+  .slick-prev {
+    left: 0;
+    &::before {
+      border-style: solid;
+      border-width: 5px 6px 5px 0;
+      border-color: transparent #FC4317 transparent transparent;
+    }
+  }
+  .slick-next {
+    right: 0;
+    &::before {
+      border-style: solid;
+      border-width: 5px 0 5px 6px;
+      border-color: transparent transparent transparent #FC4317;
+    }
+  }
+  @include mediaTB {
+    padding:0 40px;
+  }
+  @include mediaPC {
+    padding:0 55px;
+    .slick-prev,
+    .slick-next {
+      width: 38px;
+      height: 38px;
+    }
+    .slick-prev {
+      left:-15px;
+      &::before {
+        border-width: 7.5px 10px 7.5px 0;
+      }
+    }
+    .slick-next {
+      right:-15px;
+      &::before {
+        border-width: 7.5px 0 7.5px 10px;
+      }
+    }
+  }
+}
+/*--------------------
+動画サムネイル
+---------------------*/
+#movieNav {
+  margin:0 -20px;
+  overflow: hidden;
+  //スライドの倍数が少ない場合
+  li {
+    padding:0 5px;
+    .image {
+      position: relative;
+      &::after {
+        content:"";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        right: 0;
+        //background: #808080;
+        //mix-blend-mode:multiply;
+        z-index: 1;
+      }
+    }
+    &:not(.slick-current) {
+      .image {
+        &::after {
+          background: #808080;
+          mix-blend-mode:multiply;
+        }
+      }
+    }
+  }
+  &.pos_fixed {
+    .slick-track {
+      transform: translate3d(0,0,0) !important;
+    }
+  }
+  @include mediaTB {
+    margin:20px 0 0;
+  }
+  @media screen and (min-width: 1024px) {
+    .slick-list,
+    .slick-track{
+      transform: unset !important;
+    }
+  }
+}
+/*--------------------
+ヘッダー
+---------------------*/
+#course_head {
+
+  .page_title {
+    color:#000;
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.44;
+    margin-top: 25px;
+  }
+  .sub_title {
+    margin-top: 15px;
+    // font-size: 11.5px;
+    line-height:1.74;
+    font-weight: 500;
+  }
+  .meta {
+    margin-top: 1em;
+    line-height: 1.875;
+    font-weight: 400;
+    .icon_update {
+      position:relative;
+      padding-left:15px;
+      &::before {
+        content:"";
+        display:inline-block;
+        position:absolute;
+        background:url(../images/course/icon_update.svg) no-repeat;
+        background-size:contain;
+        width:12px;
+        height:12px;
+        left:0;
+        top:calc(50% - 6px);
+      }
+    }
+  }
+  @include mediaTB {
+    color:#fff;
+    padding-left: $layout_mgn_tb;
+    .page_title {
+      font-size: 25px;
+      margin-top: 0;
+      color: #fff;
+    }
+    .meta {
+      margin-top: 30px;
+      .icon_update {
+        &::before {
+          background:url(../images/course/icon_update_white.svg) no-repeat;
+          background-size:contain;
+        }
+      }
+    }
+  }
+  @include mediaPC {
+    padding-left: $layout_mgn_pc;
+    .page_title {
+      font-size: 39px;
+      line-height: 1.2;
+    }
+    .sub_title {
+      margin-top: 30px;
+      font-size: 23px;
+      line-height: 1.74;
+    }
+    .meta {
+      margin-top: 50px;
+      display: flex;
+      flex-wrap:wrap;
+      li {
+        width: 50%;
+        line-height: 1.5;
+        &:nth-of-type(2n+1) {
+          max-width: 250px;
+        }
+        &:nth-of-type(n+3) {
+          margin-top: 10px;
+        }
+      }
+      .icon_update {
+        padding-left:20px;
+        &::before {
+          width:17px;
+          height:17px;
+          top:calc(50% - 8.5px);
+        }
+      }
+    }
+  }
+}
+
+/*--------------------
+リンクボタン
+---------------------*/
+.btn_course {
+  display: block;
+  background: #fff;
+  border:1px solid #0071BC;
+  border-radius: 3px;
+  text-align: center;
+  min-height: 36px;
+  span {
+    color: #0071BC;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 36px;
+    &::before {
+      content:"";
+      display:inline-block;
+      width: 14.7px;
+      height: 14.2px;
+      background: url(../images/course/icon_tag.svg) no-repeat;
+      background-size: contain;
+      background-position: center center;
+      margin-right: 10px;
+      @include trans;
+    }
+  }
+  &.is_red {
+    background: #FC4317;
+    border-color: #FC4317;
+    span {
+      color: #fff;
+      font-weight: 500;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &::before {
+        width: 13px;
+        height: 14px;
+        background: url(../images/course/icon_cart.svg) no-repeat;
+        background-size: contain;
+
+      }
+    }
+  }
+  &.is_share {
+    span {
+      &::before {
+        width: 16.5px;
+        height: 13.5px;
+        background: url(../images/course/icon_share.svg) no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+  @include mediaTB {
+    background: transparent;
+    border-color: #fff;
+    display: inline-block;
+    padding:0 1em;
+    min-height: 26px;
+
+    span {
+      color: #fff;
+      line-height: 24px;
+      &::before {
+        background: url(../images/course/icon_tag_white.svg) no-repeat;
+        background-size: contain;
+      }
+    }
+    &.is_share {
+      span {
+        &::before {
+          background: url(../images/course/icon_share_white.svg) no-repeat;
+          background-size: contain;
+        }
+      }
+    }
+    &.is_red {
+      min-height: 52px;
+      width: 100%;
+      span {
+        line-height: 50px;
+      }
+    }
+  }
+  @include mediaPC {
+    min-height: 40px;
+    @include trans;
+    span {
+      line-height: 38px;
+      font-size: 16px;
+      @include trans;
+      &::before {
+        width: 16.5px;
+        height: 15.5px;
+      }
+    }
+    &:hover {
+      background: $lightblue;
+    }
+    &.is_red {
+      span {
+        font-size: 20px;
+        line-height: 70px;
+        &::before {
+          width: 24px;
+          height: 25px;
+        }
+      }
+      &:hover {
+        background: #fff;
+        span {
+          color: #FC4317;
+          &::before {
+            background: url(../images/course/icon_cart_red.svg) no-repeat;
+            background-size: contain;
+          }
+        }
+
+      }
+    }
+  }
+}
+/*--------------------
+タグボタン
+---------------------*/
+#tags {
+  @include mediaSP {
+    li {
+      margin-top: 10px;
+    }
+  }
+  @include mediaTB {
+    padding-left: $layout_mgn_tb;
+
+    li {
+      display: inline-block;
+      margin-right: 10px;
+      margin-top: 10px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  @include mediaPC {
+    padding-left: $layout_mgn_pc;
+    li {
+      margin-top: 15px;
+    }
+  }
+}
+/*--------------------
+詳細タイトル
+---------------------*/
+.detail_title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  line-height: 1;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #B2B2B2;
+  padding-top: 25px;
+  margin-bottom: 15px;
+  @include mediaPC {
+    font-size: 22px;
+  }
+  @include mediaPC {
+    font-size: 33px;
+    padding: 90px 0 15px;
+    margin-bottom: 35px;
+  }
+}
+.big_title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #000;
+  margin: 25px 0 10px;
+  @include mediaTB {
+    font-size: 19px;
+    &.pc_min {
+      font-size: 16px;
+    }
+  }
+  @include mediaPC {
+    font-size: 30px;
+    margin:60px 0 30px;
+    &.pc_min {
+      font-size: 23px;
+    }
+  }
+}
+.mid_title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+  @include mediaTB {
+    font-size: 16px;
+  }
+  @include mediaPC {
+    font-size: 23px;
+    margin:30px 0;
+  }
+}
+/*--------------------
+商品概要
+---------------------*/
+
+#merchandise {
+  position: absolute;
+  display: block;
+  z-index: 2;
+  top: 0px;
+
+  .cols {
+    display: flex;
+    align-items:center;
+
+    max-width: 100%;
+    margin-top: 20px;
+    .col {
+      &:first-child {
+        margin-right: 15px;
+      }
+    }
+  }
+  .discount_price {
+    font-size: 25px;
+    line-height: 1;
+    white-space: nowrap;
+    font-weight: 700;
+    color: #000;
+  }
+  .tuition {
+    font-size: 11.5px;
+    line-height: 1;
+    font-weight: 300;
+    white-space: nowrap;
+    text-decoration:line-through;
+    color: #808080;
+    text-align: right;
+  }
+  .percent {
+    font-size: 10px;
+    white-space: nowrap;
+    line-height: 1;
+    margin-top: 2px;
+    font-weight: 700;
+    text-align: right;
+  }
+  .btn_wrap {
+    margin-top: 15px;
+  }
+
+  @include mediaTB {
+    position: absolute;
+    //left: 0;
+    //top: 0;
+    width: 30%;
+    background: #fff;
+    padding:10px;
+    @include bbox;
+    border-radius: 3px;
+    border:1px solid #CCCCCC;
+    box-shadow: 2px 2px 1px rgba(0,0,0,0.16);
+    .cols {
+      justify-content:space-between;
+      .col {
+        &:first-child {
+          margin-right: 10px;
+        }
+      }
+    }
+    .big_title {
+      font-weight:600;
+    }
+  }
+  @include mediaPC {
+    max-width: 360px;
+    padding:25px;
+    .cols {
+      margin:30px 0;
+    }
+    .discount_price {
+      font-size: 40px;
+    }
+    .tuition {
+      font-size: 23px;
+    }
+    .percent {
+      font-size: 20px;
+    }
+    .big_title {
+      font-size: 23px;
+      line-height:1;
+      margin:33px 0 20px;
+    }
+  }
+  @include mediaMaxMN{
+   // top: 110px;
+  }
+  @include mediaSP {
+    position: static;
+  }
+}
+
+
+
+
+/*--------------------
+対象者
+---------------------*/
+.target_person {
+  li {
+    position: relative;
+    //font-size: $cos_fsize;
+    line-height: $cos_lineh;
+    padding-left: 20px;
+    margin-bottom: $cos_mgn;
+    @include bbox;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &::before {
+      content:"◆";
+      left: 0;
+      top: 0;
+      position: absolute;
+      display: inline-block;
+      color: #FD4317;
+      font-size: 10px;
+      line-height: 2;
+      margin-right: 0.5em;
+    }
+    @include mediaPC {
+      //font-size: $cos_fsize_pc;
+      &::before {
+        top: 4px;
+      }
+    }
+  }
+}
+/*--------------------
+スキル
+---------------------*/
+.box_blue {
+  margin: 25px 0;
+  border:1px solid #BEDCFF;
+  border-radius: 3px;
+  background: #F5FAFF;
+  padding:15px;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.16);
+  @include bbox;
+  .mid_title {
+    margin:0;
+  }
+  .skills {
+    margin-top: 10px;
+    li {
+      position: relative;
+      //font-size: $cos_fsize;
+      line-height: $cos_lineh;
+      padding: 10px 0 10px 20px;
+      border-top: 1px dotted #BCCBD3;
+      @include bbox;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &::before {
+        content:"";
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 15px;
+        width: 10px;
+        height: 10px;
+        background: url(../images/course/icon_check.svg) no-repeat;
+        background-size: contain;
+        margin-right: 0.5em;
+      }
+    }
+  }
+  @include mediaPC {
+    margin: 60px 0;
+    padding:25px;
+    border-radius: 5px;
+    .skills {
+      margin-top:15px;
+      li {
+        padding: 15px 0 15px 30px;
+        //font-size: $cos_fsize_pc;
+        &::before {
+          width: 16px;
+          height: 11px;
+          top: 23px;
+        }
+      }
+    }
+  }
+}
+/*--------------------
+コース概要
+---------------------*/
+.course_gaiyou {
+  li {
+    position: relative;
+    //font-size: $cos_fsize;
+    line-height: 1.875;
+    &.icon {
+      padding-left: 20px;
+      @include bbox;
+      &::before {
+        content:"";
+        display: inline-block;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 4px;
+        width: 13px;
+        height: 13px;
+        margin-right: 0.5em;
+      }
+      &.time {
+        &::before {
+          background: url(../images/course/icon_time.svg) no-repeat;
+          background-size: contain;
+          background-position: center center;
+        }
+      }
+      &.count {
+        &::before {
+          background: url(../images/course/icon_count.svg) no-repeat;
+          background-size: contain;
+          background-position: center center;
+        }
+      }
+      &.period {
+        &::before {
+          background: url(../images/course/icon_period.svg) no-repeat;
+          background-size: contain;
+          background-position: center center;
+        }
+      }
+      &.certificate {
+        &::before {
+          width: 14px;
+          left: -1px;
+          background: url(../images/course/icon_certificate.svg) no-repeat;
+          background-size: contain;
+          background-position: center center;
+        }
+      }
+      &.mobile {
+        &::before {
+          background: url(../images/course/icon_mobile.svg) no-repeat;
+          background-size: contain;
+          background-position: center center;
+        }
+      }
+    }
+  }
+  @include mediaPC {
+    li {
+      //font-size: 18px;
+      &.icon {
+        padding-left: 35px;
+        &::before {
+          width: 21.5px;
+          height: 21.5px;
+        }
+        &.certificate {
+          &::before {
+            width: 23.5px;
+          }
+        }
+      }
+    }
+  }
+}
+/*--------------------
+ご用意いただく環境
+---------------------*/
+.preparations {
+  li {
+    position: relative;
+    //font-size: $cos_fsize;
+    line-height: $cos_lineh;
+    padding-left: 20px;
+    margin-bottom: $cos_mgn;
+    @include bbox;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &::before {
+      content:"";
+      left: 0;
+      top: 5px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      position: absolute;
+      display: inline-block;
+      background: #B2B2B2;
+    }
+  }
+  @include mediaPC {
+    li {
+      //font-size: $cos_fsize_pc;
+      &::before {
+        top: 10px;
+      }
+    }
+  }
+}
+/*--------------------
+カリキュラム
+---------------------*/
+.curriculum {
+  .cur_title_box {
+    margin:25px 0 10px;
+    display: flex;
+    justify-content:space-between;
+    .big_title {
+      margin:0;
+    }
+  }
+  .btn_expand {
+    display:inline-block;
+    line-height: 1;
+    color: #fff;
+    padding:6px 15px;
+    border:1px solid $lightblue;
+    background:$lightblue;
+    border-radius: 3px;
+    font-size: 13px;
+  }
+  .cur_course_head {
+    position: relative;
+    padding-left: 20px;
+    margin: 20px 0 10px;
+    &::before {
+      content:"";
+      display: block;
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: $lightblue;
+      transform:rotate(45deg);
+      top: 6px;
+      left: 0;
+    }
+  }
+  ul.cur_parent {
+    &>li {
+      &+li {
+        margin-top: 15px;
+      }
+    }
+  }
+  ul.cur_child {
+    border-radius: 4px;
+    overflow: hidden;
+    border:1px solid #CCCCCC;
+    &>li {
+      a {
+        position: relative;
+        display: block;
+        padding:15px 20px 15px 45px;
+        background: #F7F7F7;
+        color:#000;
+        font-weight: 600;
+        font-size: 13px;
+        border-top: 1px solid #CCCCCC;
+        @include bbox;
+        &::before {
+          content:"";
+          display: block;
+          position: absolute;
+          width: 8px;
+          height: 8px;
+          top:20px;
+          left: 25px;
+          border-top: 1px solid #808080;
+          border-right: 1px solid #808080;
+          transform:rotate(135deg);
+          transform-origin:center;
+          @include trans;
+        }
+      }
+      &.is_expand {
+        a {
+          &::before {
+
+            transform:rotate(-45deg);
+          }
+        }
+      }
+      .cur_list {
+        padding:15px 20px 15px 25px;
+        border-top: 1px solid #CCCCCC;
+
+        @include bbox;
+        li {
+          position: relative;
+          padding-left:20px;
+          //font-size: $cos_fsize;
+          &::before {
+            content:"";
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 5px 0 5px 8px;
+            border-color: transparent transparent transparent $lightblue;
+          }
+          &+li {
+            margin-top: 10px;
+          }
+        }
+      }
+      &:first-child {
+        a {
+          border-top: 0;
+        }
+      }
+    }
+  }
+  @include mediaTB {
+    .btn_expand{
+      font-size: 15px;
+    }
+  }
+  @include mediaPC {
+    .cur_title_box {
+      margin:60px 0 30px;
+    }
+    .btn_expand{
+      line-height: 40px;
+      font-size: 17px;
+      padding:0 2em;
+      border-radius: 4px;
+      @include trans;
+      &:hover {
+        background: #fff;
+        color: $lightblue;
+      }
+    }
+    .cur_course_head {
+      font-size: 19px;
+      &::before {
+        top: 10px;
+      }
+    }
+    ul.cur_child {
+      &>li {
+        a {
+          padding:17px 40px 17px 70px;
+          font-size: 19px;
+          @include trans;
+          &::before {
+            width: 10px;
+            height: 10px;
+            top: 25px;
+            left: 40px;
+          }
+          &:hover {
+            // opacity: 0.5;
+            background: #dddddd;
+          }
+        }
+        .cur_list {
+          padding:25px 40px;
+          li {
+            padding:0 0 0 30px;
+            //font-size: $cos_fsize_pc;
+            &::before {
+              border-width: 6px 0 6px 9px;
+              top: 6px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/*--------------------
+受講者の声
+---------------------*/
+.voices {
+  li {
+    padding: 85px 0 25px;
+    position: relative;
+    font-size: 11px;
+    line-height: 1.45;
+    &::before {
+      content:"";
+      display: block;
+      position: absolute;
+      width: 58px;
+      height: 58px;
+      top: 15px;
+      left: calc(50% - 29px);
+      z-index: 1;
+    }
+    &+li {
+      border-top: 1px solid #D9D9D9;
+      font-size: 0.8em;
+    }
+    &:nth-of-type(3n+1) {
+      &::before {
+        background:url(../images/course/icon_voice_blue.svg) no-repeat;
+        background-size: contain;
+      }
+    }
+    &:nth-of-type(3n+2) {
+      &::before {
+        background:url(../images/course/icon_voice_yellow.svg) no-repeat;
+        background-size: contain;
+      }
+    }
+    &:nth-of-type(3n) {
+      &::before {
+        background:url(../images/course/icon_voice_green.svg) no-repeat;
+        background-size: contain;
+      }
+    }
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+  @include mediaTB {
+    li {
+      padding:20px 0;
+      display: flex;
+      align-items:center;
+      justify-content:space-between;
+      @include bbox;
+      &::before {
+        position: static;
+        display: block;
+        margin-right: 20px;
+      }
+      .title {
+        width: calc(100% - 78px);
+        font-size: 13px;
+      }
+
+    }
+  }
+  @include mediaPC {
+    li {
+      &::before {
+        width: 67px;
+        height: 67px;
+        margin-right: 30px;
+        margin:0 30px 0 20px;
+      }
+      .title {
+        width: calc(100% - 117px);
+        font-size: 16px;
+      }
+    }
+  }
+}
+/*--------------------
+コースパック
+---------------------*/
+.packs {
+  li {
+    &+li {
+      margin-top: 10px;
+    }
+    a {
+      display: block;
+      border:1px solid #D9D9D9;
+      border-radius: 2px;
+      padding:10px;
+      @include bbox;
+      .cols {
+        display: flex;
+        justify-content:space-between;
+        .image {
+          width: 33%;
+          img {
+            //height: 100%;
+            height:16vw;
+            width: 100%;
+            object-fit:cover;
+          }
+        }
+        .texts {
+          width: 62%;
+        }
+      }
+      .pack_title {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.28;
+      }
+      .pack_attendance_time {
+        margin-top: 10px;
+        font-size: 11px;
+      }
+      .pack_price_box {
+        display: flex;
+        margin-top: 15px;
+        .pack_discount_price {
+          font-weight: 700;
+          line-height: 1;
+          font-size: 15px;
+          margin-right: 10px;
+          color: #000;
+        }
+        .pack_tuition {
+          font-size: 12px;
+          color: #808080;
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+  @include mediaTB {
+    li {
+      a {
+        .image {
+          img {
+            max-height:10.45vw;
+          }
+        }
+      }
+    }
+  }
+  @include mediaPC {
+    li {
+      a {
+        @include trans;
+        .image {
+          overflow:hidden;
+          img {
+            @include trans;
+            max-height:100px;
+          }
+        }
+        .cols {
+          .image {
+            width: 175px;
+          }
+          .texts {
+            width: calc(100% - 195px);
+            display: flex;
+            justify-content:space-between;
+            padding:10px 0px;
+          }
+        }
+        .left_box {
+          width: calc(100% - 160px);
+        }
+        .right_box {
+          width: 150px;
+          display: flex;
+          flex-direction: column;
+        }
+        .pack_title {
+          font-size: 16px;
+          line-height: 1.666875;
+        }
+        .pack_attendance_time {
+          font-size: 14px;
+        }
+        .pack_price_box {
+          margin-top: 0;
+          display: block;
+          .pack_discount_price {
+            text-align: right;
+            margin-right: 0;
+            font-size: 19px;
+          }
+          .pack_tuition {
+            text-align: right;
+            font-size: 16px;
+          }
+        }
+        .list_tags {
+          text-align: right;
+          margin-top: auto;
+          li {
+            margin:10px 0 0 5px;
+          }
+        }
+        &:hover {
+          opacity:0.8;
+          img {
+            transform:scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}
+
+/*--------------------
+おすすめ商品
+---------------------*/
+#recommend {
+  margin-top: 25px;
+  background: #F7F7F9;
+  padding:15px 0 25px;
+  border-top: 1px solid #CCCCCC;
+  border-bottom: 1px solid #CCCCCC;
+  overflow-x:hidden;
+  .big_title {
+    margin-top: 0;
+  }
+  @include mediaSP {
+    margin-left: -20px;
+    margin-right: -20px;
+    .innerSP {
+      margin-right:0;
+    }
+  }
+  @include mediaTB {
+    background: transparent;
+    border:none;
+  }
+  @include mediaPC {
+    margin:25px -40px 0;
+    .big_title {
+      margin-left:40px;
+    }
+  }
+}
+.recommend {
+  li {
+    width: 250px;
+    margin-right: 10px;
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding:13px;
+      @include bbox;
+      border:1px solid #CCCCCC;
+      background: #fff;
+      .image {
+        width: calc(100% - 40px);
+        margin:0 auto;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .texts {
+        margin-top: 15px;
+      }
+      .recommend_title {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.28;
+      }
+      .recommend_sub_title {
+        margin-top: 5px;
+        font-size: 11px;
+        color: #808080;
+        line-height: 1.4;
+      }
+      .recommend_price_box {
+        display: flex;
+        margin-top: 5px;
+        .recommend_discount_price {
+          font-weight: 700;
+          line-height: 1;
+          font-size: 15px;
+          margin-right: 10px;
+          color: #000;
+        }
+        .recommend_tuition {
+          font-size: 12px;
+          color: #808080;
+          line-height: 1;
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+  @include mediaTB {
+    padding:0 40px;
+    li {
+      margin:0 5px;
+      a {
+        min-height: 300px;
+        .recommend_title {
+          font-size: 15px;
+        }
+        .recommend_sub_title {
+          font-size: 12px;
+        }
+        .recommend_price_box {
+          margin-top: 10px;
+          .recommend_discount_price {
+            font-size: 17px;
+          }
+          .recommend_tuition {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  @include mediaPC {
+    padding:0 70px;
+    li {
+      margin:0 5px;
+      a {
+        @include trans;
+        min-height: 300px;
+        .image {
+          overflow:hidden;
+          img {
+            @include trans;
+          }
+        }
+        .recommend_title {
+          font-size: 16px;
+        }
+        .recommend_price_box {
+          .recommend_discount_price {
+            font-size: 19px;
+          }
+          .recommend_tuition {
+            font-size: 15px;
+          }
+        }
+        &:hover {
+          opacity:0.8;
+          img {
+            transform:scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}
+//slick関連
+.recommend {
+  .slick-slide {
+    margin-bottom:1px;
+    a {
+      min-height: 175px;
+      .image {
+        width: 100%;
+      }
+    }
+  }
+  .slick-prev,
+  .slick-next {
+    width: 26px;
+    height: 26px;
+    color: transparent;
+    background: #F5F5F7;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    border-radius: 50px;
+    &::before {
+      content:"";
+      width: 0;
+      height: 0;
+      font-size: 0;
+    }
+  }
+  .slick-prev {
+    left: 2px;
+    &::before {
+      border-style: solid;
+      border-width: 5px 6px 5px 0;
+      border-color: transparent #FC4317 transparent transparent;
+    }
+  }
+  .slick-next {
+    right: 2px;
+    &::before {
+      border-style: solid;
+      border-width: 5px 0 5px 6px;
+      border-color: transparent transparent transparent #FC4317;
+    }
+  }
+  @include mediaSP {
+    .slick-next {
+      top: -25px;
+      right:20px;
+    }
+  }
+  @include mediaTB {
+    .slick-track {
+      margin-left:0;
+    }
+  }
+  @include mediaPC {
+    .slick-prev,
+    .slick-next {
+      width: 38px;
+      height: 38px;
+    }
+    .slick-prev {
+      left:20px;
+      &::before {
+        border-width: 7.5px 10px 7.5px 0;
+      }
+    }
+    .slick-next {
+      right:20px;
+      &::before {
+        border-width: 7.5px 0 7.5px 10px;
+      }
+    }
+  }
+}
+/*--------------------
+タグ情報
+---------------------*/
+.list_tags {
+  li {
+    display: inline-block;
+    padding:5px 1em;
+    background: #fff;
+    width: auto;
+    color:$orange;
+    border:1px solid $orange;
+    margin: 10px 10px 0 0;
+    line-height: 1;
+    border-radius: 3px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  @include mediaTB {
+    li {
+      font-size: 12px;
+    }
+  }
+}
+/*--------------------
+モーダル
+---------------------*/
+#modal_share {
+  .remodal {
+    padding:35px 35px 60px;
+  }
+  .remodal-close {
+    left:auto;
+    right: 0;
+  }
+  .modal_title {
+    text-align: left;
+    display: flex;
+    align-items:center;
+    margin-bottom: 20px;
+    span {
+      display: inline-block;
+      &:nth-of-type(1){
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        margin-right: 5px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &:nth-of-type(2){
+        font-size: 16px;
+        font-weight: 700;
+        color:$lightblue;
+      }
+    }
+  }
+  .modal_url_wrap {
+    text-align: right;
+    .modal_url {
+      padding: 0.8em;
+      background:#efefef;
+      border:1px solid #cccccc;
+      width: 100%;
+      font-size: 16px;
+      box-shadow: none  !important;
+      border-radius: 0 !important;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      box-sizing:border-box;
+      display: block;
+    }
+    .btn_copy {
+      display: inline-block;
+      background: $lightblue;
+      color:#fff;
+      font-weight: 500;
+      font-size: 13px;
+      padding:5px 20px;
+    }
+  }
+  .sns_modal_btns {
+    display: flex;
+    justify-content:center;
+    margin-top: 20px;
+    li {
+      height: 45px;
+      border-radius: 4px;
+      overflow: hidden;
+      text-align: center;
+      margin:0 10px;
+      a {
+        display: block;
+        width: 45px;
+        height: 45px;
+        @include bbox;
+        padding:10px;
+        img {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+    }
+    .facebook {
+      a {
+        background: #3C5A99;
+        padding:12px;
+      }
+    }
+    .twitter {
+      a {
+        background: #1D9BF0;
+        padding:14px 10px;
+      }
+    }
+  }
+
+  .remodal-cancel {
+    background: #808080;
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 4px;
+    padding:10px 0;
+  }
+  @include mediaTB {
+    .modal_title {
+      span {
+        &:nth-of-type(1){
+          width: 30px;
+          height: 30px;
+        }
+        &:nth-of-type(2){
+          font-size: 22px;
+        }
+      }
+    }
+    .modal_url_wrap {
+      display: flex;
+      .modal_url {
+        width: calc(100% - 110px);
+      }
+      .btn_copy {
+        width: 110px;
+        font-size: 18px;
+        padding: 0.7em 0;
+        text-align: center;
+      }
+    }
+    .pc_cols {
+      display: flex;
+      justify-content:space-between;
+    }
+    .sns_modal_btns {
+      margin-top: 40px;
+    }
+    .remodal-cancel {
+      padding:11px 0;
+      font-size: 18px;
+    }
+  }
+}
+/*--------------------
+固定フッター
+---------------------*/
+#singleCourse {
+  @include mediaSP {
+    #footer {
+      padding-bottom:100px;
+    }
+  }
+}
+#subscription {
+  display:none;
+  @include mediaSP {
+    background:#003C78;
+    color:#fff;
+    display:block;
+    position:fixed;
+    z-index:2;
+    width:100%;
+    left:0;
+    bottom:0;
+    padding:12px 0;
+    @include bbox;
+    .sbsc_wrap {
+      display:flex;
+      justify-content:space-between;
+      .col {
+        &:nth-of-type(1) {
+          width:49%;
+        }
+        &:nth-of-type(2) {
+          width:calc(51% - 95px);
+        }
+        &:nth-of-type(3) {
+          width:75px;
+        }
+      }
+    }
+    .sbsc_title {
+      font-weight:700;
+      font-size:15px;
+      overflow: hidden;
+      white-space: nowrap;
+      width:100%;
+      text-overflow: ellipsis;
+    }
+    .sbsc_time {
+      font-size:11px;
+      position:relative;
+      padding-left:15px;
+      overflow: hidden;
+      white-space: nowrap;
+      width:100%;
+      text-overflow: ellipsis;
+      &::before {
+        content:"";
+        display:inline-block;
+        position:absolute;
+        background:url(../images/course/icon_time_white.svg) no-repeat;
+        background-size:contain;
+        width:12px;
+        height:12px;
+        left:0;
+        top:calc(50% - 6px);
+      }
+    }
+    .sbsc_discount_price {
+      font-size:15px;
+      font-weight:700;
+    }
+    .sbsc_tuition {
+      font-size:11px;
+      text-decoration:line-through;
+    }
+    .btn_course.is_red {
+      border-radius:0;
+      span {
+        font-size:12px;
+        &::before {
+          content:none;
+        }
+      }
+    }
+  }
+  @media screen and (max-width:374px) {
+    .sbsc_wrap {
+      .col {
+        &:nth-of-type(2) {
+          width:calc(51% - 75px);
+        }
+      }
+    }
+    .sbsc_title {
+      font-size:13px;
+    }
+    .sbsc_time {
+      font-size:10px;
+    }
+    .sbsc_discount_price {
+      font-size:13px;
+    }
+    .sbsc_tuition {
+      font-size:10px;
+    }
+  }
+
+}
+
+
