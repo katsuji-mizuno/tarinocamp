@@ -69,7 +69,7 @@
 
       <div class="inner">
         <div class="course_register">
-        <a href="https://camp-lms.trainocate.co.jp/rpv/external/user_regist.aspx?k=ZiMY2oT6IXWMiMe9gVl7MDlYUzOTO9y9TFwhTdGqGVaFftUDRTJzjiHtQ1xJAP%2f0">会員登録して無料の模擬試験を受ける</a>
+        <a href="https://camp-lms.trainocate.co.jp/rpv/signup/">会員登録して無料の模擬試験を受ける</a>
         </div>
       </div>
 
@@ -114,7 +114,7 @@
 
       <div class="inner">
         <div class="course_register">
-        <a href="https://camp-lms.trainocate.co.jp/rpv/external/user_regist.aspx?k=ZiMY2oT6IXWMiMe9gVl7MDlYUzOTO9y9TFwhTdGqGVaFftUDRTJzjiHtQ1xJAP%2f0">会員登録して無料の模擬試験を受ける</a>
+        <a href="https://camp-lms.trainocate.co.jp/rpv/signup/">会員登録して無料の模擬試験を受ける</a>
         </div>
       </div>
 

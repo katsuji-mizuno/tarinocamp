@@ -399,6 +399,28 @@ body {
       }
     }
   }
+  &.is_gray{
+    background: #808080;
+    border-color: #808080;
+    margin: 10px 0 0;
+    span {
+      color: #fff;
+      font-weight: 500;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &::before {
+        width: 0px;
+        height: 14px;
+        background: none;
+        background-size: contain;
+
+      }
+    }
+  }
+
+
+
   &.is_share {
     span {
       &::before {
@@ -413,7 +435,7 @@ body {
     background: transparent;
     border-color: #fff;
     display: inline-block;
-    padding:0 1em;
+    padding:0 0.6em;
     min-height: 26px;
 
     span {
@@ -432,7 +454,8 @@ body {
         }
       }
     }
-    &.is_red {
+    &.is_red,&.is_gray {
+      padding: 0;
       min-height: 52px;
       width: 100%;
       span {
@@ -458,10 +481,10 @@ body {
     &.is_red {
       span {
         font-size: 20px;
-        line-height: 70px;
+        line-height: 60px;
         &::before {
-          width: 24px;
-          height: 25px;
+          width: 21px;
+          height: 22px;
         }
       }
       &:hover {
@@ -476,7 +499,63 @@ body {
 
       }
     }
+    &.is_gray {
+      margin:  20px 0 0;
+      span {
+        font-size: 20px;
+        line-height: 60px;
+        &::before {
+          width: 0px;
+          height: 25px;
+        }
+      }
+      &:hover {
+        background: #fff;
+        span {
+          color: #808080;
+          &::before {
+            background: none;
+            background-size: contain;
+          }
+        }
+
+      }
+    }
   }
+
+  @include mediaTB {
+    @include trans;
+
+    &:hover {
+      background: $lightblue;
+    }
+    &.is_red {
+      &:hover {
+        background: #fff;
+        span {
+          color: #FC4317;
+          &::before {
+            background: url(../images/course/icon_cart_red.svg) no-repeat;
+            background-size: contain;
+          }
+        }
+      }
+    }
+    &.is_gray {
+      &:hover {
+        background: #fff;
+        span {
+          color: #808080;
+          &::before {
+            background: none;
+            background-size: contain;
+          }
+        }
+      }
+    }
+  }
+
+
 }
 /*--------------------
 タグボタン

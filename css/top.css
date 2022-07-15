@@ -233,7 +233,7 @@ Slick
 /*----------------------------------------------------
 PC検索窓
 ----------------------------------------------------*/
-@media all and (max-width: 930px) {
+@media all and (max-width: 1500px) {
   .top_mv_wrap .slick-prev, .top_mv_wrap .slick-next {
     top: 60%;
   }
@@ -264,7 +264,6 @@ PC検索窓
   position: absolute;
   height: 101%;
   -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 @media all and (max-width: 1100px) {
@@ -330,7 +329,6 @@ ul#course_list li {
   border: 1px solid #D9D7C9;
   opacity: 1;
   -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 ul#course_list li:hover {
@@ -531,15 +529,13 @@ inner
 }
 .course_list .course_title {
   font-size: 16px;
-  -o-text-overflow: ellipsis;
-     text-overflow: ellipsis;
+  text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
 .course_list .course_sub_title {
   font-size: 13px;
-  -o-text-overflow: ellipsis;
-     text-overflow: ellipsis;
+  text-overflow: ellipsis;
   overflow: hidden;
   height: 58px;
   display: -webkit-box;
@@ -763,7 +759,6 @@ inner
 
 a:hover .c_thumb img {
   -webkit-transform: scale(1.1);
-      -ms-transform: scale(1.1);
           transform: scale(1.1);
 }
 
@@ -813,7 +808,6 @@ a:hover .c_thumb img {
   top: 0px;
   left: 0px;
   -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 .top_course_content ul a:nth-child(odd) {
@@ -834,7 +828,6 @@ a:hover .c_thumb img {
           box-shadow: 5px 5px 2px #e6e9f1;
   margin: 0 0 40px;
   -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 @media all and (max-width: 750px) {
@@ -875,7 +868,6 @@ a:hover .c_thumb img {
   display: -ms-flexbox;
   display: flex;
   -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 .news_content li .post_date {
@@ -913,7 +905,6 @@ a:hover .c_thumb img {
   top: 50%;
   width: 50%;
   -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
           transform: translateY(-50%);
   text-align: center;
 }
@@ -1012,13 +1003,11 @@ a:hover .c_thumb img {
 .dialogue_btn .dialogue_btn_course {
   background: #363636;
   -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 .dialogue_btn .dialogue_btn_purchase {
   background: #DB4620;
   -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 .dialogue_btn a:hover .dialogue_btn_course {
@@ -1120,7 +1109,6 @@ Slickの矢印
   border-radius: 4px;
   text-decoration: none;
   -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 
@@ -1182,4 +1170,3 @@ body {
   height: 100%;
   font-weight: 400;
 }
-/*# sourceMappingURL=top.css.map */

@@ -46,7 +46,6 @@ inner
 ---------------------*/
 .contents_head {
   background: #003C78;
-  background: -o-linear-gradient(315deg, #15466e 0%, #1464a4 100%);
   background: linear-gradient(135deg, #15466e 0%, #1464a4 100%);
   padding: 40px 0;
   color: #fff;
@@ -358,7 +357,6 @@ inner
   top: 50%;
   width: 50%;
   -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
           transform: translateY(-50%);
   text-align: center;
 }
@@ -522,11 +520,9 @@ inner
   border: 1px solid;
   border-color: transparent transparent #565656 #565656;
   -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
   margin-top: -7px;
   -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 @media all and (max-width: 750px) {
@@ -538,7 +534,6 @@ inner
 /*開いた状態の矢印描画*/
 .faq input[type=checkbox]:checked + .faq_wrap::before {
   -webkit-transform: rotate(135deg);
-      -ms-transform: rotate(135deg);
           transform: rotate(135deg);
   margin-top: -2px;
 }
@@ -569,4 +564,3 @@ inner
   content: "・";
   margin: 0 5px 0 0;
 }
-/*# sourceMappingURL=about.css.map */

@@ -1,0 +1,100 @@
+@import "mixin";
+$sizes: 168px, 216px, 126px;
+
+.font-bold {
+	font-weight: bold;
+}
+
+.strengths {
+  padding: 70px 0 100px;
+  @include sp {
+    padding: 30px 0 50px;
+  }
+  &__heading {
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-bottom: 50px;
+    text-align: center;
+    @include sp {
+      font-weight: normal;
+      margin: 0 auto 35px;
+      width: 7em;
+    }
+    &-en {
+      color: #dd451e;
+      font-size: 0.75rem;
+      font-weight: normal;
+      margin-bottom: 25px;
+      width: 100%;
+    }
+  }
+  &__list {
+    color: #040404;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 960px;
+    @include sp {
+      display: block;
+      margin: 0 30px;
+      width: auto;
+    }
+  }
+  &__item {
+    border-top: 5px solid #dd451e;
+    box-shadow: 0 2px 3px 1px #dedede;
+    box-sizing: border-box;
+    padding: 0 25px 30px;
+    width: 300px;
+    &::before {
+      background: no-repeat 50% 50%;
+      background-size: contain;
+      content: "";
+      display: block;
+      height: 250px;
+      margin: 0 auto;
+    }
+    @include sp {
+      margin-bottom: 30px;
+      width: 100%;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      &::before {
+        height: 200px;
+      }
+    }
+    @each $size in $sizes {
+      $i: index($sizes, $size);
+      &-strengths#{$i} {
+        &::before {
+          background-image: url(../images/icon-strengths#{$i}.png);
+          width: $size;
+        }
+        & dt::before {
+          content: "0#{$i}";
+        }
+      }
+    }
+    dt {
+      font-size: 1.125rem;
+      height: calc(3em * 1.75);
+      line-height: 1.75;
+      margin-bottom: 1em;
+      text-align: center;
+      @include sp {
+        height: auto;
+      }
+      &::before {
+        color: #dd451e;
+        display: block;
+        font-size: 1rem;
+      }
+    }
+    p {
+      font-size: 0.875rem;
+      line-height: 1.75;
+      word-break: break-word;
+    }
+  }
+}

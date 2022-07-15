@@ -1,0 +1,191 @@
+@import "mixin";
+
+
+.header__navBar {
+  border-bottom: 1px solid #707070;
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.header__logo {
+  display: table-cell;
+  padding: 20px 30px;
+  width: 270px;
+  @include sp {
+    display: block;
+    width: 200px;
+  }
+  a {
+    display: block;
+    transition: all 0.3s;
+    width: 270px;
+    @include sp {
+      width: 100%;
+    }
+    img {
+      display: block;
+      width: 100%;
+    }
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.header__nav {
+  @include sp {
+    display: none;
+  }
+  display: table-cell;
+  vertical-align: middle;
+  white-space: nowrap;
+  &List {
+    align-items: center;
+    display: flex;
+    font-size: 0.875rem;
+    height: 100%;
+    justify-content: flex-end;
+    list-style: none;
+    &Item {
+      border-left: 1px solid #707070;
+      line-height: 2em;
+      padding: 0 24px;
+      &:first-child {
+        border-left: none;
+      }
+      a {
+        color: #040404;
+        text-decoration: none;
+        &::after {
+          background: url(../images/arrow-down.svg) no-repeat 50% 50%;
+          content: "";
+          display: inline-block;
+          height: 1em;
+          margin-left: 4px;
+          vertical-align: middle;
+          width: 1em;
+        }
+      }
+      &-register {
+        background-color: #3e549f;
+        border-left: none;
+        height: 100%;
+        padding: 0;
+        &:hover {
+          opacity: 0.8;
+        }
+        a {
+          align-items: center;
+          color: #fff;
+          display: flex;
+          font-size: 1.125rem;
+          height: 100%;
+          padding: 0 24px;
+          &::after {
+            display: none;
+          }
+          .header-free {
+            background-color: #f5f8ff;
+            border-radius: 3px;
+            color: #3e549f;
+            font-size: 12px;
+            margin-left: 6px;
+            padding: 3px 6px;
+          }
+          .header-parentheses {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.header__lead {
+  background: url(../images/bg-lead.jpg) no-repeat 100% 100%;
+  background-size: contain;
+  padding: 10% 10% 40px;
+  position: relative;
+  @include sp {
+    padding: 30px 30px 20px;
+  }
+}
+
+.header__leadTexts {
+  font-size: 21px;
+  margin-bottom: 80px;
+}
+
+.header__leadText {
+  font-weight: bold;
+  line-height: 1.5;
+  @include sp {
+    font-size: 16px;
+  }
+}
+
+.header-emphasis {
+  border-bottom: 1px solid #000;
+  display: block;
+  font-size: 50px;
+  line-height: 1.4;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+  @include sp {
+    font-size: 40px;
+  }
+}
+
+.header__leadText-trainocamp {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-top: 1em;
+  @include sp {
+    font-size: 10px;
+  }
+}
+.header__badges {
+  display: flex;
+  justify-content: space-between;
+  width: 210px;
+  img {
+    width: 100px;
+  }
+  @include sp {
+    width: 170px;
+    img {
+      width: 80px;
+    }
+  }
+}
+
+.header__movie {
+  @include sp {
+    display: none;
+  }
+  background: url(../images/icon-movie.png) no-repeat 0 0;
+  background-size: contain;
+  bottom: 40px;
+  cursor: pointer;
+  height: calc(340px / 2.5);
+  position: absolute;
+  right: 5%;
+  width: calc(586px / 2.5);
+  &:hover {
+    filter: brightness(1.05);
+  }
+}
+
+/*----------------------------------------------------
+common.cssの打ち消し
+----------------------------------------------------*/
+
+header {
+  z-index: 0;
+}
+
+.header ul li.search_window {
+  z-index: 0;
+}

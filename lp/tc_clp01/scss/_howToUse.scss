@@ -1,0 +1,123 @@
+@import "mixin";
+$bgSize: 400px;
+$bgHeight: 636px / (954px / $bgSize);
+
+.howToUse {
+  background-color: #f5f8ff;
+  padding: 70px 0 100px;
+  &-bg {
+    display: none;
+  }
+  @include sp {
+    padding: 30px 0 20px;
+    &-bg {
+      display: block;
+      margin-bottom: 30px;
+      width: calc(100% - 30px);
+      .howToUse__info-howTo2 & {
+        float: right;
+      }
+    }
+  }
+  &__heading {
+    font-size: 1.875rem;
+    font-weight: normal;
+    margin-bottom: 50px;
+    text-align: center;
+    @include sp {
+      margin-bottom: 35px;
+    }
+    &-en {
+      color: #dd451e;
+      font-size: 0.75rem;
+      margin-bottom: 25px;
+    }
+  }
+  &__infos {
+    margin: 0 auto;
+    width: 960px;
+    @include sp {
+      width: 100%;
+    }
+  }
+  &__info {
+    padding-left: calc($bgSize + 30px);
+    background: no-repeat 0 0;
+    background-size: $bgSize;
+    margin-bottom: 30px;
+    min-height: $bgHeight;
+    overflow: hidden;
+    @for $i from 1 through 3 {
+      &-howTo#{$i} {
+        background-image: url(../images/bg-info#{$i}.jpg);
+      }
+    }
+    &-howTo2 {
+      background-position: 100% 0;
+      padding: 0 calc($bgSize + 30px) 0 0;
+      text-align: right;
+      & .howToUse__link {
+        float: right;
+        @include sp {
+          float: none;
+        }
+      }
+    }
+    @include sp {
+      background: none;
+      padding: 0;
+      &::before {
+        content: "";
+        display: block;
+        background: no-repeat 0 0;
+        width: calc(100% - 30px);
+        height: calc(636px / (954 / (100% - 30px)));
+      }
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      &Heading,
+      &Text {
+        margin: 0 30px;
+      }
+    }
+    &Heading {
+      color: #111;
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    &Text {
+      color: #040404;
+      font-size: 0.75rem;
+      line-height: 2;
+    }
+  }
+  a{
+    color: #fff;
+  }
+  &__link {
+    background-color: #dd451e;
+    box-shadow: 0 1px 2px 0 #dedede;
+    color: #fff;
+    border-radius: 1.5em;
+    display: block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    line-height: 3em;
+    margin: 30px 0;
+    padding: 0 50px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+    @include sp {
+      font-size: 1rem;
+      margin: 30px auto;
+      padding: 0;
+      width: calc(100% - 60px);
+    }
+  }
+}

@@ -17,7 +17,7 @@ body {
 .contents {
   padding-top: 50px;
   background: #fff;
-  @media screen and (min-width: ($menu_width)+1) {
+  @media screen and (min-width: ($menu_width) + 1) {
     padding-top: 0;
   }
 }
@@ -31,7 +31,10 @@ inner
   }
   @media screen and (min-width: 1025px) {
     .inner {
-      margin:0 auto;
+      margin: 0 auto 120px;
+      &.tit{
+        margin: 0 auto;
+      }
     }
   }
 }
@@ -106,12 +109,21 @@ inner
   }
 
   @include mediaPC {
-    padding:120px 20px;
+    padding: 20px;
     a {
       @include trans;
       &:hover {
         color: $cos_blue;
       }
+    }
+  }
+  h2{
+    font-size: 40px;
+    font-weight: bold;
+    margin: 40px 0 20px;
+    @include mediaSP{
+      font-size: 20px;
+      margin: 0px 0 10px;
     }
   }
 }
@@ -143,6 +155,9 @@ inner
     a{
       display: block;
     }
+  }
+  @include mediaSP{
+    margin: 0 0 60px;
   }
 }
 
@@ -267,4 +282,112 @@ inner
 
 .contents_head .h_lead {
   line-height: 2;
+}
+
+.course_list_tit{
+  background: #008A9F;
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: bold;
+  width: fit-content;
+  font-size: 30px;
+  margin: 40px 0 0;
+  @include mediaSP{
+    font-size: 15px;
+    margin: 60px 0 0;
+  }
+  &.first{
+    margin: 0;
+  }
+}
+
+.course_list{
+
+  @include mediaPC{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  >li{
+    @include mediaPC{
+      width: 47%;
+
+    }
+    border: 1px solid #505050;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #999;
+    margin: 40px 0;
+    height: max-content;
+    @include mediaSP{
+      margin: 20px 0;
+    }
+    h3{
+      background: #505050;
+      color: #fff;
+      font-weight: bold;
+      padding: 20px;
+      text-align: center;
+      font-size: 25px;
+      @include mediaSP{
+        font-size: 15px;
+        padding: 10px;
+
+      }
+    }
+    li{
+      font-size: 20px;
+      @include mediaSP{
+        font-size: 14px;
+      }
+      font-weight: bold;
+      padding: 20px 0;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1px solid #707070;
+      margin: 0 20px;
+      @include mediaSP{
+        padding: 10px 0;
+        margin: 0 10px;
+      }
+      &:last-child{
+        border-bottom: none;
+      }
+      a{
+        width: 80%;
+        color: #003C78;
+        @include mediaSP{
+          width: 76%;
+        }
+      }
+      p{
+        font-weight: bold;
+        &.new{
+          &::after{
+            content: "新着";
+            color: #DB4620;
+            font-size: 16px;
+            font-weight: normal;
+            border: 1px solid #DB4620;
+            padding: 3px 6px;
+            margin: 0 0 0 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            position: relative;
+            top: -1px;
+            @include mediaSP{
+              font-size: 12px;
+            }
+          }
+        }
+      }
+      span{
+        width: 15%;
+        @include mediaSP{
+          width: 20%;
+        }
+        text-align: right;
+      }
+    }
+  }
 }

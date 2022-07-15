@@ -95,7 +95,6 @@ a.btn_more {
 @media all and (min-width: 751px) {
   .layout .contents_head {
     background: #003C78;
-    background: -o-linear-gradient(315deg, #15466e 0%, #1464a4 100%);
     background: linear-gradient(135deg, #15466e 0%, #1464a4 100%);
     padding: 40px 0;
   }
@@ -270,7 +269,6 @@ a.btn_more {
   #movieNav .slick-list,
 #movieNav .slick-track {
     -webkit-transform: unset !important;
-        -ms-transform: unset !important;
             transform: unset !important;
   }
 }
@@ -397,7 +395,6 @@ a.btn_more {
   background-position: center center;
   margin-right: 10px;
   -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 .btn_course.is_red {
@@ -423,6 +420,30 @@ a.btn_more {
   background: url(../images/course/icon_cart.svg) no-repeat;
   background-size: contain;
 }
+.btn_course.is_gray {
+  background: #808080;
+  border-color: #808080;
+  margin: 10px 0 0;
+}
+.btn_course.is_gray span {
+  color: #fff;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.btn_course.is_gray span::before {
+  width: 0px;
+  height: 14px;
+  background: none;
+  background-size: contain;
+}
 .btn_course.is_share span::before {
   width: 16.5px;
   height: 13.5px;
@@ -434,7 +455,7 @@ a.btn_more {
     background: transparent;
     border-color: #fff;
     display: inline-block;
-    padding: 0 1em;
+    padding: 0 0.6em;
     min-height: 26px;
   }
   .btn_course span {
@@ -449,11 +470,12 @@ a.btn_more {
     background: url(../images/course/icon_share_white.svg) no-repeat;
     background-size: contain;
   }
-  .btn_course.is_red {
+  .btn_course.is_red, .btn_course.is_gray {
+    padding: 0;
     min-height: 52px;
     width: 100%;
   }
-  .btn_course.is_red span {
+  .btn_course.is_red span, .btn_course.is_gray span {
     line-height: 50px;
   }
 }
@@ -461,14 +483,12 @@ a.btn_more {
   .btn_course {
     min-height: 40px;
     -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
     transition: all 0.3s;
   }
   .btn_course span {
     line-height: 38px;
     font-size: 16px;
     -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
     transition: all 0.3s;
   }
   .btn_course span::before {
@@ -480,11 +500,11 @@ a.btn_more {
   }
   .btn_course.is_red span {
     font-size: 20px;
-    line-height: 70px;
+    line-height: 60px;
   }
   .btn_course.is_red span::before {
-    width: 24px;
-    height: 25px;
+    width: 21px;
+    height: 22px;
   }
   .btn_course.is_red:hover {
     background: #fff;
@@ -494,6 +514,56 @@ a.btn_more {
   }
   .btn_course.is_red:hover span::before {
     background: url(../images/course/icon_cart_red.svg) no-repeat;
+    background-size: contain;
+  }
+  .btn_course.is_gray {
+    margin: 20px 0 0;
+  }
+  .btn_course.is_gray span {
+    font-size: 20px;
+    line-height: 60px;
+  }
+  .btn_course.is_gray span::before {
+    width: 0px;
+    height: 25px;
+  }
+  .btn_course.is_gray:hover {
+    background: #fff;
+  }
+  .btn_course.is_gray:hover span {
+    color: #808080;
+  }
+  .btn_course.is_gray:hover span::before {
+    background: none;
+    background-size: contain;
+  }
+}
+@media all and (min-width: 751px) {
+  .btn_course {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .btn_course:hover {
+    background: #0071BC;
+  }
+  .btn_course.is_red:hover {
+    background: #fff;
+  }
+  .btn_course.is_red:hover span {
+    color: #FC4317;
+  }
+  .btn_course.is_red:hover span::before {
+    background: url(../images/course/icon_cart_red.svg) no-repeat;
+    background-size: contain;
+  }
+  .btn_course.is_gray:hover {
+    background: #fff;
+  }
+  .btn_course.is_gray:hover span {
+    color: #808080;
+  }
+  .btn_course.is_gray:hover span::before {
+    background: none;
     background-size: contain;
   }
 }
@@ -924,7 +994,6 @@ a.btn_more {
   height: 6px;
   background: #0071BC;
   -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
           transform: rotate(45deg);
   top: 6px;
   left: 0;
@@ -960,18 +1029,14 @@ a.btn_more {
   border-top: 1px solid #808080;
   border-right: 1px solid #808080;
   -webkit-transform: rotate(135deg);
-      -ms-transform: rotate(135deg);
           transform: rotate(135deg);
   -webkit-transform-origin: center;
-      -ms-transform-origin: center;
           transform-origin: center;
   -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 .curriculum ul.cur_child > li.is_expand a::before {
   -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 .curriculum ul.cur_child > li .cur_list {
@@ -1017,7 +1082,6 @@ a.btn_more {
     padding: 0 2em;
     border-radius: 4px;
     -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
     transition: all 0.3s;
   }
   .curriculum .btn_expand:hover {
@@ -1034,7 +1098,6 @@ a.btn_more {
     padding: 17px 40px 17px 70px;
     font-size: 19px;
     -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
     transition: all 0.3s;
   }
   .curriculum ul.cur_child > li a::before {
@@ -1203,7 +1266,6 @@ a.btn_more {
 @media all and (min-width: 1101px) {
   .packs li a {
     -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
     transition: all 0.3s;
   }
   .packs li a .image {
@@ -1211,7 +1273,6 @@ a.btn_more {
   }
   .packs li a .image img {
     -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
     transition: all 0.3s;
     max-height: 100px;
   }
@@ -1273,7 +1334,6 @@ a.btn_more {
   }
   .packs li a:hover img {
     -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
             transform: scale(1.1);
   }
 }
@@ -1404,7 +1464,6 @@ a.btn_more {
   }
   .recommend li a {
     -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
     transition: all 0.3s;
     min-height: 300px;
   }
@@ -1413,7 +1472,6 @@ a.btn_more {
   }
   .recommend li a .image img {
     -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
     transition: all 0.3s;
   }
   .recommend li a .recommend_title {
@@ -1430,7 +1488,6 @@ a.btn_more {
   }
   .recommend li a:hover img {
     -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
             transform: scale(1.1);
   }
 }
@@ -1726,8 +1783,7 @@ a.btn_more {
     overflow: hidden;
     white-space: nowrap;
     width: 100%;
-    -o-text-overflow: ellipsis;
-       text-overflow: ellipsis;
+    text-overflow: ellipsis;
   }
   #subscription .sbsc_time {
     font-size: 11px;
@@ -1736,8 +1792,7 @@ a.btn_more {
     overflow: hidden;
     white-space: nowrap;
     width: 100%;
-    -o-text-overflow: ellipsis;
-       text-overflow: ellipsis;
+    text-overflow: ellipsis;
   }
   #subscription .sbsc_time::before {
     content: "";

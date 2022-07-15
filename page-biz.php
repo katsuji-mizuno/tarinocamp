@@ -136,16 +136,16 @@
               <tr>
                 <td class="table_tit" rowspan="2">
                   <div class="content_course_tit a">
-                    ビジネスパーソン向け
+                  ビジネスパーソン向け
                   </div>
                 </td>
                 <td class="table_text">
-                  <div class="content_course_btn space">IT業界へようこそ-IT業界把握のファーストステップ-  2021年12月提供予定</div>
+					<div class="content_course_btn"><a>IT業界丸わかり 2022年7月提供予定</a></div>
                 </td>
               </tr>
               <tr>
                 <td class="table_text">
-                  <div class="content_course_btn b space">ITリテラシー受け放題完全パック  2021年12月提供予定</div>
+					<div class="content_course_btn"><a>ITリテラシーパック  2022年10月提供予定</a></div>
                 </td>
               </tr>
             </table>

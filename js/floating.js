@@ -30,7 +30,7 @@ if(!navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/)){
         // positionを設定
         $(setBoxId).css('position', 'fixed');
         // topの位置を設定
-        $(setBoxId).animate({top: '60'}, {duration: 0});
+        $(setBoxId).animate({top: '20'}, {duration: 0});
     } else {
         // 設定したスタイルを元に戻す
         $(setBoxId).css('position', 'absolute');

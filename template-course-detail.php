@@ -121,7 +121,8 @@ Template Post Type: page
                   </div>
                 </div>
                 <div class="btn_wrap">
-                  <a href="<?php echo $course_info->ec_jump_key; ?>" target="_blank" class="btn_course is_red"><span class="notosans">お申し込み手続き</span></a>
+                  <a href="<?php echo $course_info->ec_jump_key; ?>" target="_blank" class="btn_course is_red"><span class="notosans">購入してすぐに始める</span></a>
+                  <a href="https://camp-lms.trainocate.co.jp/rpv/signup/" target="_blank" class="btn_course is_gray"><span class="notosans">無料登録して体験受講</span></a>
                 </div>
                 <div class="nonSP">
                   <h3 class="big_title">コース概要</h3>

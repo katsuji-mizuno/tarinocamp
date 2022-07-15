@@ -3,9 +3,9 @@
 <?php get_header(); ?>
 
 
-<?php 
+<?php
   /*************************
-  商品情報の取得 
+  商品情報の取得
   *************************/
   $merchandise_id = get_field('merchandise_id');
   $course_info = get_api_course($merchandise_id);
@@ -41,7 +41,7 @@ transform:unset!important;
 </head>
 
 <body id="singleCourse" data-merchandise-id="<?php echo $course_info->merchandise_id; ?>">
-  
+
   <?php get_template_part('parts_site_header'); ?>
 
   <main class="contents">
@@ -75,7 +75,7 @@ transform:unset!important;
           <!-- 動画BOX -->
           <div id="movie" class="">
             <div class="innerSP">
-              <?php 
+              <?php
                 //動画の取得------------------------------
                 $videos       = array();
                 $videoinfos   = array();
@@ -86,7 +86,7 @@ transform:unset!important;
                   $video_json   = file_get_contents($video_url);
                   $video_json   = mb_convert_encoding($video_json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
                   $videoinfo    = json_decode( $video_json ) ; //オブジェクト変換
-        
+
                   if ($videoinfo) {
                     array_push($videoinfos,$videoinfo);
                   }
@@ -101,7 +101,7 @@ transform:unset!important;
                     <div class="wrap_movie">
                       <iframe src="<?php echo 'https://player.vimeo.com/video/' . $videoinfo->video_id; ?>" title = "<?php echo $videoinfo->title; ?>" frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                <?php 
+                <?php
                   endforeach;
               	?>
               </div>
@@ -112,7 +112,7 @@ transform:unset!important;
                   foreach($videoinfos as $videoinfo) :
                     $video_thumb;
                     if ($videoinfo->thumbnail_url) {
-                      $video_thumb = $videoinfo->thumbnail_url;
+                      $video_thumb = $videoinfo->thumbnail_url;
                     }else{
                       $video_thumb = get_template_directory_uri() . '/images/course/no_thumb.jpg';
                     }
@@ -120,7 +120,7 @@ transform:unset!important;
                     <li>
                       <div class="image"><img src="<?php echo $video_thumb; ?>" alt=""></div>
                     </li>
-                <?php 
+                <?php
                   endforeach;
                 ?>
               </ul>
@@ -158,12 +158,13 @@ transform:unset!important;
                 </div>
                 <div class="col">
                   <p class="tuition">&yen;<?php echo number_format($course_info->tuition); ?></p>
-                  
+
                   <p class="percent"><?php echo $percent; ?>%OFF</p>
                 </div>
               </div>
               <div class="btn_wrap">
-                <a href="<?php echo $course_info->ec_jump_key; ?>" target="_blank" class="btn_course is_red"><span class="notosans">お申し込み手続き</span></a>
+                <a href="<?php echo $course_info->ec_jump_key; ?>" target="_blank" class="btn_course is_red"><span class="notosans">購入してすぐに始める</span></a>
+                <a href="https://camp-lms.trainocate.co.jp/rpv/signup/" target="_blank" class="btn_course is_gray"><span class="notosans">無料登録して体験受講</span></a>
 
                 <div class="nonSP">
                   <h3 class="big_title">コース概要</h3>
@@ -185,7 +186,7 @@ transform:unset!important;
                 <li>
                   <a href="#modal_share" class="btn_course is_share"><span>シェア</span></a>
                 </li>
-                <?php 
+                <?php
                   if (isset($course_info->tag_list)) :
                     $tags = $course_info->tag_list;
                     foreach($tags as $tag) :
@@ -213,7 +214,7 @@ transform:unset!important;
             <h3 class="mid_title">対象者</h3>
             <?php if (isset($course_info->tag_list)) : ?>
               <ul class="target_person">
-                <?php 
+                <?php
                   $persons = $course_info->target_person;
                   foreach($persons as $person) :
                     echo '<li>' . $person . '</li>';
@@ -223,12 +224,12 @@ transform:unset!important;
             <?php  endif; ?>
 
 
-            
+
             <div class="box_blue">
               <h3 class="mid_title">このコースで身につくスキル</h3>
               <?php if (isset($course_info->skill)) : ?>
                 <ul class="skills">
-                  <?php 
+                  <?php
                     $skills = $course_info->skill;
                     foreach($skills as $skill) :
                       echo '<li>' . $skill . '</li>';
@@ -237,7 +238,7 @@ transform:unset!important;
                 </ul>
               <?php  endif; ?>
             </div>
-            
+
 
 
             <h3 class="big_title pc_min">コース概要</h3>
@@ -258,7 +259,7 @@ transform:unset!important;
             <h3 class="big_title pc_min">ご用意いただく環境</h3>
             <?php if (isset($course_info->preparation)) : ?>
               <ul class="preparations">
-                <?php 
+                <?php
                   $preparations = $course_info->preparation;
                   foreach($preparations as $preparation) :
                     echo '<li>' . $preparation . '</li>';
@@ -274,10 +275,10 @@ transform:unset!important;
                 <h3 class="big_title">カリキュラム</h3>
                 <a href="javascript:void(0)" class="btn_expand">全てのカリキュラム表示</a>
               </div>
-              
+
               <?php if (isset($course_info->curriculum_list)) : ?>
                 <ul class="cur_parent">
-                  <?php 
+                  <?php
                     $curriculums = $course_info->curriculum_list;
                     foreach($curriculums as $idx1 =>$curriculum) :
                   ?>
@@ -286,7 +287,7 @@ transform:unset!important;
                         <div class="cur_course_head"><?php echo $curriculum->course_name;?></div>
                         <div class="cur_course_content">
                           <ul  class="cur_child">
-                            <?php 
+                            <?php
                               $childlist = $curriculum->child_list;
                               foreach($childlist as $idx2 =>$child) :
                             ?>
@@ -294,12 +295,12 @@ transform:unset!important;
                               <a href="javascript:void(0)" class="js_accordion"><?php echo $child->child_name;?></a>
                               <?php echo (($idx1==0) && ($idx2==0)) ? '<ul class="cur_list">' : '<ul class="cur_list" style="display:none;">'; ?>
                               <!-- <ul class="cur_list"> -->
-                                <?php 
+                                <?php
                                   $childlist2 = $child->child_name2;
                                   foreach($childlist2 as $child2) :
                                 ?>
                                 <li><?php echo $child2;?></li>
-                                <?php  endforeach; ?>    
+                                <?php  endforeach; ?>
                               </ul>
                             <?php echo '</li>'; ?>
                             <?php  endforeach; ?>
@@ -307,8 +308,8 @@ transform:unset!important;
                         </div>
                       </div>
                     </li>
-                  <?php  endforeach; ?>    
-                  
+                  <?php  endforeach; ?>
+
                 </ul>
               <?php  endif; ?>
             </div>
@@ -318,7 +319,7 @@ transform:unset!important;
               <h3 class="big_title pc_min">受講者からの声</h3>
               <?php if (isset($course_info->user_voice)) : ?>
                 <ul class="voices">
-                  <?php 
+                  <?php
                     $voices = $course_info->user_voice;
                     $idx = 0;
                     foreach($voices as $voice) :
@@ -343,7 +344,7 @@ transform:unset!important;
               <h3 class="big_title">このコースを含むパック</h3>
               <?php if (isset($course_info->pack_list)) : ?>
                 <ul class="packs">
-                  <?php 
+                  <?php
                     $packs = $course_info->pack_list;
                     $idx = 0;
                     foreach($packs as $pack) :
@@ -374,7 +375,7 @@ transform:unset!important;
                               </div>
                               <?php if (isset($pack_tags)) : ?>
                                 <ul class="list_tags">
-                                  <?php 
+                                  <?php
                                     foreach ($pack_tags as $tag) :
                                       echo '<li>' . $tag->name . '</li>';
                                     endforeach;
@@ -385,7 +386,7 @@ transform:unset!important;
                           </div>
                         </div>
                       </a>
-                  <?php 
+                  <?php
                     echo '</li>';
                   endforeach;
                   ?>
@@ -405,22 +406,22 @@ transform:unset!important;
                 <h3 class="big_title">その他のおすすめコース</h3>
                 <?php if (isset($course_info->recommend_list)) : ?>
                   <ul class="recommend" id="slide_recommend">
-                    <?php 
+                    <?php
                       $recommends = $course_info->recommend_list;
                       $idx = 0;
                       foreach($recommends as $recommend) :
-                        
+
                         $recommend_tags = get_api_tags($recomend->merchandise_id);
                     ?>
                         <li class="auto">
                           <a href="<?php echo home_url(); ?>?merchandise_id=<?php echo $pack->merchandise_id;?>" >
                             <div class="image thumb">
-                              <?php 
+                              <?php
                                 if ($recommend->icon_image) :
                                   $packimg = $base_img_url . $recommend->icon_image;
                                 else:
                                   $packimg = get_template_directory_uri() . '/images/course/noimage.jpg';
-                                endif; 
+                                endif;
                               ?>
                               <img src="<?php echo $packimg;?>" alt="">
                             </div>
@@ -434,7 +435,7 @@ transform:unset!important;
                             </div>
                             <?php if (isset($recommend_tags)) : ?>
                               <ul class="list_tags">
-                                <?php 
+                                <?php
                                   foreach ($recommend_tags as $tag) :
                                     echo '<li>' . $tag->name . '</li>';
                                   endforeach;
@@ -443,8 +444,8 @@ transform:unset!important;
                             <?php endif; ?>
                           </a>
                         </li>
-                    <?php 
-                     
+                    <?php
+
                     endforeach;
                     ?>
                   </ul>
@@ -457,7 +458,7 @@ transform:unset!important;
           </div>
         </div>
       </div>
-    
+
     </div>
 
   </main>
@@ -484,9 +485,9 @@ transform:unset!important;
         <button data-remodal-action="cancel" class="remodal-cancel">閉じる</button>
       </div>
     </div>
-    
-    
-    
+
+
+
     <!-- <button data-remodal-action="confirm" class="remodal-confirm">OK</button> -->
   </div>
 

@@ -1,0 +1,49 @@
+@import "mixin";
+
+.movie {
+  /* topプロパティはJSで指定 */
+  background-color: rgba(0, 0, 0, 0.85);
+  height: 125%; /* 25%はスマホでのアドレスバー分 */
+  left: 0;
+  position: absolute;
+  width: 100%;
+  &.closed {
+    display: none;
+  }
+  &__modal {
+    left: 50%;
+    max-width: 960px;
+    position: absolute;
+    top: 10%;
+    transform: translateX(-50%);
+    width: 100%;
+    button {
+      background: url(../images/icon-modalClosed.png) no-repeat 0 0;
+      background-size: contain;
+      border: none;
+      cursor: pointer;
+      display: block;
+      float: right;
+      height: 39px;
+      margin-bottom: 15px;
+      width: 38px;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+    video {
+      clear: both;
+      display: block;
+      width: 100%;
+    }
+    @include sp {
+      max-width: calc(100% - 60px);
+      top: 20%;
+      button {
+        height: 19.5px;
+        margin-bottom: 10px;
+        width: 19px;
+      }
+    }
+  }
+}

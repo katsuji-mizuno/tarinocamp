@@ -1,0 +1,55 @@
+@import "mixin";
+
+.register {
+  background-color: #dbdbdb;
+  padding: 20px 0;
+  @include sp {
+    padding: 20px 30px;
+  }
+  a{
+    color: #fff;
+  }
+  &__link {
+    background-color: #3e549f;
+    color: #fff;
+    border-radius: 1.5em;
+    display: block;
+    font-size: 1.125rem;
+    line-height: 3em;
+    margin: 0 auto;
+    padding: 0 100px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+    @include sp {
+      padding: 0;
+      width: 100%;
+    }
+    &:hover {
+      opacity: 0.8;
+    }
+    .register-free {
+      background-color: #f5f8ff;
+      border-radius: 3px;
+      color: #3e549f;
+      font-size: 12px;
+      margin-left: 6px;
+      padding: 3px 6px;
+      /* TODO: 下に2pxずれるのを修正 */
+      position: relative;
+      top: -2px;
+    }
+    .register-parentheses {
+      display: none;
+    }
+  }
+}
+
+.strengths__item.strengths__item-strengths3 {
+  a{
+    text-decoration: underline;
+  }
+}

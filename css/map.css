@@ -38,6 +38,10 @@ inner
 @media screen and (min-width: 1025px) {
   .contents_head .inner,
 .contents_body .inner {
+    margin: 0 auto 120px;
+  }
+  .contents_head .inner.tit,
+.contents_body .inner.tit {
     margin: 0 auto;
   }
 }
@@ -47,7 +51,6 @@ inner
 ---------------------*/
 .contents_head {
   background: #003C78;
-  background: -o-linear-gradient(315deg, #15466e 0%, #1464a4 100%);
   background: linear-gradient(135deg, #15466e 0%, #1464a4 100%);
   padding: 40px 0;
   color: #fff;
@@ -121,15 +124,25 @@ inner
 }
 @media all and (min-width: 1101px) {
   .contents_body {
-    padding: 120px 20px;
+    padding: 20px;
   }
   .contents_body a {
     -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
     transition: all 0.3s;
   }
   .contents_body a:hover {
     color: #00ABE7;
+  }
+}
+.contents_body h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 40px 0 20px;
+}
+@media all and (max-width: 750px) {
+  .contents_body h2 {
+    font-size: 20px;
+    margin: 0px 0 10px;
   }
 }
 
@@ -152,7 +165,6 @@ inner
   top: 0;
   left: 0;
   -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 @media all and (min-width: 1101px) {
@@ -169,6 +181,11 @@ inner
 }
 .map_menu li a {
   display: block;
+}
+@media all and (max-width: 750px) {
+  .map_menu {
+    margin: 0 0 60px;
+  }
 }
 
 .map_java {
@@ -222,7 +239,6 @@ inner
   top: 50%;
   width: 50%;
   -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
           transform: translateY(-50%);
   text-align: center;
 }
@@ -298,5 +314,142 @@ inner
 
 .contents_head .h_lead {
   line-height: 2;
+}
+
+.course_list_tit {
+  background: #008A9F;
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: bold;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 30px;
+  margin: 40px 0 0;
+}
+@media all and (max-width: 750px) {
+  .course_list_tit {
+    font-size: 15px;
+    margin: 60px 0 0;
+  }
+}
+.course_list_tit.first {
+  margin: 0;
+}
+
+@media all and (min-width: 1101px) {
+  .course_list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+.course_list > li {
+  border: 1px solid #505050;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 3px #999;
+          box-shadow: 3px 3px 3px #999;
+  margin: 40px 0;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+@media all and (min-width: 1101px) {
+  .course_list > li {
+    width: 47%;
+  }
+}
+@media all and (max-width: 750px) {
+  .course_list > li {
+    margin: 20px 0;
+  }
+}
+.course_list > li h3 {
+  background: #505050;
+  color: #fff;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  font-size: 25px;
+}
+@media all and (max-width: 750px) {
+  .course_list > li h3 {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+.course_list > li li {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #707070;
+  margin: 0 20px;
+}
+@media all and (max-width: 750px) {
+  .course_list > li li {
+    font-size: 14px;
+  }
+}
+@media all and (max-width: 750px) {
+  .course_list > li li {
+    padding: 10px 0;
+    margin: 0 10px;
+  }
+}
+.course_list > li li:last-child {
+  border-bottom: none;
+}
+.course_list > li li a {
+  width: 80%;
+  color: #003C78;
+}
+@media all and (max-width: 750px) {
+  .course_list > li li a {
+    width: 76%;
+  }
+}
+.course_list > li li p {
+  font-weight: bold;
+}
+.course_list > li li p.new::after {
+  content: "新着";
+  color: #DB4620;
+  font-size: 16px;
+  font-weight: normal;
+  border: 1px solid #DB4620;
+  padding: 3px 6px;
+  margin: 0 0 0 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  position: relative;
+  top: -1px;
+}
+@media all and (max-width: 750px) {
+  .course_list > li li p.new::after {
+    font-size: 12px;
+  }
+}
+.course_list > li li span {
+  width: 15%;
+  text-align: right;
+}
+@media all and (max-width: 750px) {
+  .course_list > li li span {
+    width: 20%;
+  }
 }
 /*# sourceMappingURL=map.css.map */
