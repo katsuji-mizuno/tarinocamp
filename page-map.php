@@ -80,7 +80,7 @@
                 <a href="<?php echo home_url(); ?>/course/detail/5/"><p>現場で活かせるWebシステム開発（Spring編）【Springシリーズ 1～3パック】</p></a><span>15時間</span>
               </li>
               <li>
-                <a href="<?php echo home_url(); ?>/course/detail/26/"><p>Springシリーズ① Spring入門-お問い合わせ機能の開発-</p></a><span>5時間</span>
+                <a href="<?php echo home_url(); ?>/course/detail/4/"><p>Springシリーズ① Spring入門-お問い合わせ機能の開発-</p></a><span>5時間</span>
               </li>
               <li>
                 <a href="<?php echo home_url(); ?>/course/detail/6/"><p>Springシリーズ②～ToDo機能開発とAOP～</p></a><span>5時間</span>
